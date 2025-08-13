@@ -15,7 +15,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The name of the legal entity for an advertiser that will be used to determine if they were given consent in a one to one manner. This value will be normalized to be case insensitive, ignore redundant white space and omit non-alphanumeric characters. Both &apos;Acme Inc.&apos; and &apos;acme inc&apos; would result in the same processed value.</summary>
+        /// <summary>The name of the legal entity for an advertiser, used to determine if they were given consent in a one-to-one manner. Normalized to be case-insensitive, ignore extra spaces, and omit non-alphanumeric characters (e.g., “Acme Inc.” and “acme inc” are the same). This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AdvertiserName { get; set; }
@@ -23,11 +23,11 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public string AdvertiserName { get; set; }
 #endif
-        /// <summary>Specifies the minimum contrast ratio that must be present between the consent language font color and its background. This helps ensure that the text is clearly visible against the background, meeting accessibility and visibility standards.</summary>
+        /// <summary>The number indicating the minimum contrast ratio required between the consent language text and background. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
         public double? MinContrastRatioRequired { get; set; }
-        /// <summary>Specifies the minimum font size (in pixels) that the consent language must meet. Consent languages that do not meet this minimum font size will fail the check.</summary>
+        /// <summary>The number indicating the minimum font size required for the consent language. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
         public double? MinFontSizePxRequired { get; set; }
-        /// <summary>An array of strings specifying the opt-in types that are accepted. The array can include one or more of the following values:- `manual`: The consumer actively checked a box to provide consent.- `pre-selected`: An opt-in field was selected by default, without explicit action from the consumer.- `non-interactive`: In the absence of an opt-in field, the consumer gave consent by submitting the form.This field is used to define which opt-in types are considered valid.</summary>
+        /// <summary>An array of strings that lists the opt-in types that are allowed. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided through either method. The array can include one or more of the following values:- `manual`: The consumer actively checked a box to provide consent.- `pre-selected`: An opt-in field was selected by default, without explicit action from the consumer.- `non-interactive`: In the absence of an opt-in field, the consumer gave consent by submitting the form.This field is used to define which opt-in types are considered valid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyParameters_opt_in_types_allowed?>? OptInTypesAllowed { get; set; }

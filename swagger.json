@@ -1451,28 +1451,28 @@
         },
         "properties": {
           "advertiser_name": {
-            "description": "The name of the legal entity for an advertiser that will be used to determine if they were given consent in a one to one manner. This value will be normalized to be case insensitive, ignore redundant white space and omit non-alphanumeric characters. Both \u0027Acme Inc.\u0027 and \u0027acme inc\u0027 would result in the same processed value.\n",
+            "description": "The name of the legal entity for an advertiser, used to determine if they were given consent in a one-to-one manner. Normalized to be case-insensitive, ignore extra spaces, and omit non-alphanumeric characters (e.g., \u201CAcme Inc.\u201D and \u201Cacme inc\u201D are the same). This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
             "example": "Acme Inc.",
             "type": "string",
             "x-struct": null,
             "x-validate": null
           },
           "min_contrast_ratio_required": {
-            "description": "Specifies the minimum contrast ratio that must be present between the consent language font color and its background. This helps ensure that the text is clearly visible against the background, meeting accessibility and visibility standards.\n",
+            "description": "The number indicating the minimum contrast ratio required between the consent language text and background. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
             "example": 7,
             "type": "number",
             "x-struct": null,
             "x-validate": null
           },
           "min_font_size_px_required": {
-            "description": "Specifies the minimum font size (in pixels) that the consent language must meet. Consent languages that do not meet this minimum font size will fail the check.\n",
+            "description": "The number indicating the minimum font size required for the consent language. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
             "example": 16,
             "type": "number",
             "x-struct": null,
             "x-validate": null
           },
           "opt_in_types_allowed": {
-            "description": "An array of strings specifying the opt-in types that are accepted. The array can include one or more of the following values:\n\n- \u0060manual\u0060: The consumer actively checked a box to provide consent.\n- \u0060pre-selected\u0060: An opt-in field was selected by default, without explicit action from the consumer.\n- \u0060non-interactive\u0060: In the absence of an opt-in field, the consumer gave consent by submitting the form.\n\nThis field is used to define which opt-in types are considered valid.\n",
+            "description": "An array of strings that lists the opt-in types that are allowed. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided through either method. The array can include one or more of the following values:\n\n- \u0060manual\u0060: The consumer actively checked a box to provide consent.\n- \u0060pre-selected\u0060: An opt-in field was selected by default, without explicit action from the consumer.\n- \u0060non-interactive\u0060: In the absence of an opt-in field, the consumer gave consent by submitting the form.\n\nThis field is used to define which opt-in types are considered valid.\n",
             "items": {
               "enum": [
                 "manual",
