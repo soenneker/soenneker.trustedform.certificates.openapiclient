@@ -25,6 +25,14 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult_properties_approx_ip_geo ApproxIpGeo { get; set; }
 #endif
+        /// <summary>This field indicates the verified owner of the TrustedForm certificate.The value can be one of the following:- ``&quot;ActiveProspect Verified Account&quot;`` — the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.- ``&quot;&lt;account name&gt;&quot;`` — the name of the verified account that owns the certificate and has granted permission to confirm ownership.To manage permissions, visit the [Connections](https://account.activeprospect.com/connections/invitations/new) page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConfirmedOwner { get; set; }
+#nullable restore
+#else
+        public string ConfirmedOwner { get; set; }
+#endif
         /// <summary>The UTC ISO8601 formatted date and time when TrustedForm Certify was loaded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,6 +96,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             {
                 { "age_seconds", n => { AgeSeconds = n.GetIntValue(); } },
                 { "approx_ip_geo", n => { ApproxIpGeo = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult_properties_approx_ip_geo>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult_properties_approx_ip_geo.CreateFromDiscriminatorValue); } },
+                { "confirmed_owner", n => { ConfirmedOwner = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
                 { "ip", n => { Ip = n.GetStringValue(); } },
@@ -105,6 +114,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("age_seconds", AgeSeconds);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult_properties_approx_ip_geo>("approx_ip_geo", ApproxIpGeo);
+            writer.WriteStringValue("confirmed_owner", ConfirmedOwner);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("expires_at", ExpiresAt);
             writer.WriteStringValue("ip", Ip);

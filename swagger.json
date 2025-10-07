@@ -353,6 +353,7 @@
             "seconds_on_page",
             "domain",
             "bot_detected",
+            "confirmed_owner",
             "ip",
             "approx_ip_geo",
             "browser",
@@ -388,6 +389,7 @@
                 "age_seconds",
                 "approx_ip_geo",
                 "bot_detected",
+                "confirmed_owner",
                 "created_at",
                 "domain",
                 "expires_at",
@@ -410,6 +412,7 @@
                 "approx_ip_geo": "The consumer\u0027s approximate geographical location based on \u0060ip\u0060",
                 "bot_detected": "A determination of whether the events documented were likely produced by a non-human entity based on ActiveProspect\u2019s proprietary algorithms. This data point is currently undergoing alpha testing. It may contain flaws and may be discontinued.",
                 "browser": "An object containing properties that provide information about the consumer\u0027s browser.",
+                "confirmed_owner": "This field indicates the verified owner of the TrustedForm certificate.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022No Owner Identified\u0022\u0060\u0060 \u2014 no account has been confirmed as the owner of this certificate.\n- \u0060\u0060\u0022ActiveProspect Verified Account\u0022\u0060\u0060 \u2014 the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.\n- \u0060\u0060\u0022\u003Caccount name\u003E\u0022\u0060\u0060 \u2014 the name of the verified account that owns the certificate and has granted permission to confirm ownership.\n\nTo manage permissions, visit the\u00A0[Connections](https://account.activeprospect.com/connections/invitations/new)\u00A0page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.\n",
                 "created_at": "The UTC ISO8601 formatted date and time when TrustedForm Certify was loaded.",
                 "domain": "The domain shown to the consumer during the lead event",
                 "expires_at": "The UTC ISO8601 formatted date and time when the certificate will expire.",
@@ -761,6 +764,12 @@
                 "x-struct": null,
                 "x-validate": null
               },
+              "confirmed_owner": {
+                "description": "This field indicates the verified owner of the TrustedForm certificate.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022ActiveProspect Verified Account\u0022\u0060\u0060 \u2014 the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.\n- \u0060\u0060\u0022\u003Caccount name\u003E\u0022\u0060\u0060 \u2014 the name of the verified account that owns the certificate and has granted permission to confirm ownership.\n\nTo manage permissions, visit the\u00A0[Connections](https://account.activeprospect.com/connections/invitations/new)\u00A0page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.\n",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
               "created_at": {
                 "description": "The UTC ISO8601 formatted date and time when TrustedForm Certify was loaded.",
                 "format": "datetime",
@@ -928,6 +937,12 @@
                   }
                 },
                 "type": "object",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "confirmed_owner": {
+                "description": "This field indicates the verified owner of the TrustedForm certificate.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022ActiveProspect Verified Account\u0022\u0060\u0060 \u2014 the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.\n- \u0060\u0060\u0022\u003Caccount name\u003E\u0022\u0060\u0060 \u2014 the name of the verified account that owns the certificate and has granted permission to confirm ownership.\n\nTo manage permissions, visit the\u00A0[Connections](https://account.activeprospect.com/connections/invitations/new)\u00A0page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.\n",
+                "type": "string",
                 "x-struct": null,
                 "x-validate": null
               },
@@ -1683,6 +1698,7 @@
                 "patch": "0"
               }
             },
+            "confirmed_owner": "ActiveProspect, Inc.",
             "created_at": "2024-09-18T17:07:09Z",
             "domain": "example.com",
             "expires_at": "2024-12-20T17:07:09Z",
@@ -1864,6 +1880,12 @@
                   }
                 },
                 "type": "object",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "confirmed_owner": {
+                "description": "This field indicates the verified owner of the TrustedForm certificate.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022No Owner Identified\u0022\u0060\u0060 \u2014 no account has been confirmed as the owner of this certificate.\n- \u0060\u0060\u0022ActiveProspect Verified Account\u0022\u0060\u0060 \u2014 the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.\n- \u0060\u0060\u0022\u003Caccount name\u003E\u0022\u0060\u0060 \u2014 the name of the verified account that owns the certificate and has granted permission to confirm ownership.\n\nTo manage permissions, visit the\u00A0[Connections](https://account.activeprospect.com/connections/invitations/new)\u00A0page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.\n",
+                "type": "string",
                 "x-struct": null,
                 "x-validate": null
               },

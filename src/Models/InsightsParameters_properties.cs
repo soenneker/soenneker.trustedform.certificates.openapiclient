@@ -20,6 +20,10 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         #pragma warning disable CS1591
         Bot_detected,
         #pragma warning restore CS1591
+        [EnumMember(Value = "confirmed_owner")]
+        #pragma warning disable CS1591
+        Confirmed_owner,
+        #pragma warning restore CS1591
         [EnumMember(Value = "created_at")]
         #pragma warning disable CS1591
         Created_at,
