@@ -61,7 +61,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostRequestBody();
         }
         /// <summary>
@@ -84,7 +84,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters>("insights", Insights);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadParameters>("match_lead", MatchLead);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainParameters>("retain", Retain);

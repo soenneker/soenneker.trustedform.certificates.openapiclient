@@ -53,7 +53,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans();
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("delimiter", Delimiter);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans.InsightsParameters_scans_forbidden>("forbidden", Forbidden);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans.InsightsParameters_scans_required>("required", Required);
@@ -110,7 +110,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans.InsightsParameters_scans_forbidden CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans.InsightsParameters_scans_forbidden();
                 if(parseNode.GetStringValue() is string insightsParametersScansForbiddenStringValue)
@@ -137,7 +137,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(InsightsParametersScansForbiddenString != null)
                 {
                     writer.WriteStringValue(null, InsightsParametersScansForbiddenString);
@@ -177,7 +177,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans.InsightsParameters_scans_required CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans.InsightsParameters_scans_required();
                 if(parseNode.GetStringValue() is string insightsParametersScansRequiredStringValue)
@@ -204,7 +204,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(InsightsParametersScansRequiredString != null)
                 {
                     writer.WriteStringValue(null, InsightsParametersScansRequiredString);

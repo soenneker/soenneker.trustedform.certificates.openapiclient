@@ -55,7 +55,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MetaLeadAdsInsightsResult_properties CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MetaLeadAdsInsightsResult_properties();
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("age_seconds", AgeSeconds);
             writer.WriteStringValue("confirmed_owner", ConfirmedOwner);
             writer.WriteStringValue("created_at", CreatedAt);

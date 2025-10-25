@@ -45,7 +45,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required();
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required.ScansResult_result_required_found>("found", Found);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required.ScansResult_result_required_not_found>("not_found", NotFound);
             writer.WriteAdditionalData(AdditionalData);
@@ -100,7 +100,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required.ScansResult_result_required_found CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required.ScansResult_result_required_found();
                 if(parseNode.GetStringValue() is string scansResultResultRequiredFoundStringValue)
@@ -127,7 +127,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(ScansResultResultRequiredFoundString != null)
                 {
                     writer.WriteStringValue(null, ScansResultResultRequiredFoundString);
@@ -167,7 +167,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required.ScansResult_result_required_not_found CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required.ScansResult_result_required_not_found();
                 if(parseNode.GetStringValue() is string scansResultResultRequiredNotFoundStringValue)
@@ -194,7 +194,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(ScansResultResultRequiredNotFoundString != null)
                 {
                     writer.WriteStringValue(null, ScansResultResultRequiredNotFoundString);
