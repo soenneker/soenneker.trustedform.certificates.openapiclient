@@ -25,7 +25,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_approx_ip_geo ApproxIpGeo { get; set; }
 #endif
-        /// <summary>A determination of whether the events documented were likely produced by a non-human entity based on ActiveProspect’s proprietary algorithms. This data point is currently undergoing alpha testing. It may contain flaws and may be discontinued.</summary>
+        /// <summary>A determination of whether the events documented were likely produced by a non-human entity based on ActiveProspect’s proprietary algorithms.</summary>
         public bool? BotDetected { get; set; }
         /// <summary>An object containing properties that provide information about the consumer’s browser.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
