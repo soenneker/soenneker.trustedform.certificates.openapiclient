@@ -22,13 +22,13 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public string Reference { get; set; }
 #endif
-        /// <summary>The result property</summary>
+        /// <summary>The results property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_result? Result { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results? Results { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_result Result { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results Results { get; set; }
 #endif
         /// <summary>    When retaining a certificate, you can optionally pass the vendor    name. This is intended for tracking the name    of the company that provided the lead associated with the    certificate. TrustedForm will record this value on the    certificate stored in your account. Other accounts cannot see this    value. When you use TrustedForm reporting,    you can easily filter or group by vendor.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "reference", n => { Reference = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_result>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_result.CreateFromDiscriminatorValue); } },
+                { "results", n => { Results = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results.CreateFromDiscriminatorValue); } },
                 { "vendor", n => { Vendor = n.GetStringValue(); } },
             };
         }
@@ -76,7 +76,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("reference", Reference);
-            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_result>("result", Result);
+            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results>("results", Results);
             writer.WriteStringValue("vendor", Vendor);
             writer.WriteAdditionalData(AdditionalData);
         }

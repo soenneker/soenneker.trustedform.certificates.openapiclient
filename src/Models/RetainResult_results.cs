@@ -9,7 +9,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class RetainResult_result : IAdditionalDataHolder, IParsable
+    public partial class RetainResult_results : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,21 +33,21 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <summary>A boolean indicating whether your account had already retained this certificate.</summary>
         public bool? PreviouslyRetained { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_result"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results"/> and sets the default values.
         /// </summary>
-        public RetainResult_result()
+        public RetainResult_results()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_result"/></returns>
+        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_result CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_result();
+            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results();
         }
         /// <summary>
         /// The deserialization information for the current model
