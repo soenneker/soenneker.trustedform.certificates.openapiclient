@@ -2,7 +2,7 @@
   "descriptionHash": "BC087AC6BA20488E84BC573990EFAB4728BDD4109E3F05FA0D5ADBB840128A0C0B4695FC3B49A831D5F54D5C25218DACB73FFACBBDD8B17D703F912C6945B031",
   "descriptionLocation": "../../swagger.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.30.0",
+  "kiotaVersion": "1.31.0",
   "clientClassName": "TrustedFormCertificatesOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.TrustedForm.Certificates.OpenApiClient",
