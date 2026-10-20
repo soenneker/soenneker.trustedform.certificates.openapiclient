@@ -20,7 +20,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient
     public partial class TrustedFormCertificatesOpenApiClient : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.TrustedForm.Certificates.OpenApiClient.item collection</summary>
-        /// <param name="position">The certificate ID format varies depending on the type of certificate. Certificate ID length willnot exceed 255 characters.</param>
+        /// <param name="position">The certificate ID format varies depending on the type of certificate. Certificate ID length will not exceed 255 characters.</param>
         /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_ItemRequestBuilder"/></returns>
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_ItemRequestBuilder this[string position]
         {

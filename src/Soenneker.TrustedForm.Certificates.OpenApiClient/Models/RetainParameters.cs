@@ -8,14 +8,22 @@ using System;
 namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     /// <summary>
-    ///     Though both `retain` parameters are optional, we strongly recommend    using them. Doing so will record additional    metadata on your stored certificate which is often of use down the road.
+    /// Though both `retain` parameters are optional, we strongly recommend using them. Doing so will record additional metadata on your stored certificate which is often of use down the road.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RetainParameters : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Any text that may help you identify the lead associated with the certificate such as a unique leadidentifier or URL pointing to the lead in another system. This value will be displayed in your copy of thecertificate for your future reference</summary>
+        /// <summary>An optional identifier for the campaign associated with the lead. Use this to track which campaign generated the lead without relying on the vendor field. TrustedForm will record this value on the certificate stored in your account and include it in reporting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CampaignId { get; set; }
+#nullable restore
+#else
+        public string CampaignId { get; set; }
+#endif
+        /// <summary>Any text that may help you identify the lead associated with the certificate such as a unique lead identifier or URL pointing to the lead in another system. This value will be displayed in your copy of the certificate for your future reference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Reference { get; set; }
@@ -23,7 +31,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public string Reference { get; set; }
 #endif
-        /// <summary>When retaining a certificate, you can optionally pass the vendor name. This is intended for tracking the nameof the company that provided the lead associated with the certificate. TrustedForm will record this value on thecertificate stored in your account. Other accounts cannot see this value. When you use TrustedForm reporting,you can easily filter or group by vendor.</summary>
+        /// <summary>When retaining a certificate, you can optionally pass the vendor name. This is intended for tracking the name of the company that provided the lead associated with the certificate. TrustedForm will record this value on the certificate stored in your account. Other accounts cannot see this value. When you use TrustedForm reporting, you can easily filter or group by vendor.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Vendor { get; set; }
@@ -56,6 +64,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
                 { "reference", n => { Reference = n.GetStringValue(); } },
                 { "vendor", n => { Vendor = n.GetStringValue(); } },
             };
@@ -67,6 +76,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("campaign_id", CampaignId);
             writer.WriteStringValue("reference", Reference);
             writer.WriteStringValue("vendor", Vendor);
             writer.WriteAdditionalData(AdditionalData);

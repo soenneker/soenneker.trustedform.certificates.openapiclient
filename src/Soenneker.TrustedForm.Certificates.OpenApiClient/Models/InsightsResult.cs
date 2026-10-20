@@ -8,35 +8,36 @@ using System;
 namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MetaLeadAdsInsightsResult"/>, <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult"/>, <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult"/>
+    /// The Insights data points and page scan results for a certificate.Not every data point is reported by every certificate type. A data point that a certificate&apos;s type does not support is returned as `null` when requested.| Property | Web | Mobile | Facebook Lead Ads | Social || --- | --- | --- | --- | --- || `age_seconds` | ✓ | ✓ | ✓ | ✓ || `approx_ip_geo` | ✓ | ✓ | — | ✓ || `bot_detected` | ✓ | — | — | — || `browser` | ✓ | — | — | — || `confirmed_owner` | ✓ | ✓ | ✓ | ✓ || `created_at` | ✓ | ✓ | ✓ | ✓ || `domain` | ✓ | — | — | ✓ || `expires_at` | ✓ | ✓ | ✓ | ✓ || `form_input_kpm` | ✓ | — | — | — || `form_input_method` | ✓ | — | — | — || `form_input_wpm` | ✓ | — | — | — || `ip` | ✓ | ✓ | — | ✓ || `is_framed` | ✓ | — | — | — || `is_masked` | ✓ | ✓ | — | — || `num_sensitive_content_elements` | ✓ | — | — | — || `num_sensitive_form_elements` | ✓ | — | — | — || `os` | ✓ | ✓ | — | ✓ || `page_url` | ✓ | — | — | — || `parent_page_url` | ✓ | — | — | — || `seconds_on_page` | ✓ | ✓ | ✓ | ✓ || `session_replay_status` | ✓ | ✓ | ✓ | ✓ |
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class InsightsResult : IComposedTypeWrapper, IParsable
+    public partial class InsightsResult : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MetaLeadAdsInsightsResult"/></summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The data points requested, if available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MetaLeadAdsInsightsResult? MetaLeadAdsInsightsResult { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties? Properties { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MetaLeadAdsInsightsResult MetaLeadAdsInsightsResult { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties Properties { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult"/></summary>
+        /// <summary>An object containing the properties that are part of the page scan process.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult? MobileInsightsResult { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult? Scans { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult MobileInsightsResult { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult Scans { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult? WebInsightsResult { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult WebInsightsResult { get; set; }
-#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult"/> and sets the default values.
+        /// </summary>
+        public InsightsResult()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -45,21 +46,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-            var result = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult();
-            if("MetaLeadAdsInsightsResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MetaLeadAdsInsightsResult = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MetaLeadAdsInsightsResult();
-            }
-            else if("MobileInsightsResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MobileInsightsResult = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult();
-            }
-            else if("WebInsightsResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.WebInsightsResult = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult();
-            }
-            return result;
+            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,19 +54,11 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(MetaLeadAdsInsightsResult != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return MetaLeadAdsInsightsResult.GetFieldDeserializers();
-            }
-            else if(MobileInsightsResult != null)
-            {
-                return MobileInsightsResult.GetFieldDeserializers();
-            }
-            else if(WebInsightsResult != null)
-            {
-                return WebInsightsResult.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "properties", n => { Properties = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties.CreateFromDiscriminatorValue); } },
+                { "scans", n => { Scans = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult.CreateFromDiscriminatorValue); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -88,18 +67,9 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(MetaLeadAdsInsightsResult != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MetaLeadAdsInsightsResult>(null, MetaLeadAdsInsightsResult);
-            }
-            else if(MobileInsightsResult != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult>(null, MobileInsightsResult);
-            }
-            else if(WebInsightsResult != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult>(null, WebInsightsResult);
-            }
+            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties>("properties", Properties);
+            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult>("scans", Scans);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

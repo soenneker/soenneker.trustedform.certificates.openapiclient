@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     /// <summary>
-    ///   The result of the `match_lead` operation. The `email` and `phone` parameters are echoed and the  `result` property reports the outcome of the operation. More information is [available in our KB](https://community.activeprospect.com/posts/4766190-trustedform-lead-matching).  If the operation result is not a `success`, TrustedForm was unable to confirm that the consumer information  collected on the cert matches the lead it came with. This is a strong signal that the lead should not be contacted.  The result of the `match_lead` operation does not impact the behavior of the `retain` operation.
+    /// The result of the `match_lead` operation. The `email` and `phone` parameters are echoed and the `result` property reports the outcome of the operation. More information is [available in our KB](https://support.activeprospect.com/hc/en-us/articles/44098172948884-TrustedForm-Lead-Matching).If the operation result is not a `success`, TrustedForm was unable to confirm that the consumer information collected on the cert matches the lead it came with. This is a strong signal that the lead should not be contacted.The result of the `match_lead` operation does not impact the behavior of the `retain` operation.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MatchLeadResult : IAdditionalDataHolder, IParsable

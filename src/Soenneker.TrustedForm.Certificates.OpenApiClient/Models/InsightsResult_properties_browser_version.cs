@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     /// <summary>
-    /// An object containing properties that provide information about the version of the consumer&apos;s operating system.
+    /// An object containing properties that provide information about the browser&apos;s version number.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WebInsightsResult_properties_os_version : IAdditionalDataHolder, IParsable
+    public partial class InsightsResult_properties_browser_version : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A string containing the version of the consumer&apos;s operating system.</summary>
+        /// <summary>A string containing the full version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Full { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public string Full { get; set; }
 #endif
-        /// <summary>A string containing the major version of the consumer&apos;s operating system.</summary>
+        /// <summary>A string containing the major version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Major { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public string Major { get; set; }
 #endif
-        /// <summary>A string containing the minor version of the consumer&apos;s operating system.</summary>
+        /// <summary>A string containing the minor version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Minor { get; set; }
@@ -39,7 +39,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public string Minor { get; set; }
 #endif
-        /// <summary>A string containing the patch version of the consumer&apos;s operating system.</summary>
+        /// <summary>A string containing the patch version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Patch { get; set; }
@@ -48,21 +48,21 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public string Patch { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os_version"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_browser_version"/> and sets the default values.
         /// </summary>
-        public WebInsightsResult_properties_os_version()
+        public InsightsResult_properties_browser_version()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os_version"/></returns>
+        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_browser_version"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os_version CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_browser_version CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os_version();
+            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_browser_version();
         }
         /// <summary>
         /// The deserialization information for the current model

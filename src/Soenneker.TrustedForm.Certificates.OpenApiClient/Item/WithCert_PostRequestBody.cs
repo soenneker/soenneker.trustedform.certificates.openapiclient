@@ -15,7 +15,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>    Request individual Insights data points (`properties`) to be returned    and terms for which to scan for in a certificate session replay.</summary>
+        /// <summary>Request individual Insights data points (`properties`) to be returned and terms for which to scan for in a certificate session replay.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters? Insights { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
 #else
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadParameters MatchLead { get; set; }
 #endif
-        /// <summary>    Though both `retain` parameters are optional, we strongly recommend    using them. Doing so will record additional    metadata on your stored certificate which is often of use down the road.</summary>
+        /// <summary>Though both `retain` parameters are optional, we strongly recommend using them. Doing so will record additional metadata on your stored certificate which is often of use down the road.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainParameters? Retain { get; set; }

@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     /// <summary>
-    ///     Request individual Insights data points (`properties`) to be returned    and terms for which to scan for in a certificate session replay.
+    /// Request individual Insights data points (`properties`) to be returned and terms for which to scan for in a certificate session replay.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InsightsParameters : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>        A list of the Insights data points you would like to be returned in        the response. Some `properties` are not        compatible with all certificate types and will return a null value.        Only contracted `properties` are        available to query. Your account will only be charged for properties        that are returned.        See InsightsResult for `form_input_method` values.</summary>
+        /// <summary>A list of the Insights data points you would like to be returned in the response. Some `properties` are not compatible with all certificate types and will return a null value. Only contracted `properties` are available to query. Your account will only be charged for properties that are returned.See InsightsResult for `form_input_method` values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_properties?>? Properties { get; set; }

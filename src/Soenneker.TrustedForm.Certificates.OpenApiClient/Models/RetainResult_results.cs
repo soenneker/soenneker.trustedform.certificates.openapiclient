@@ -32,6 +32,8 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #endif
         /// <summary>A boolean indicating whether your account had already retained this certificate.</summary>
         public bool? PreviouslyRetained { get; set; }
+        /// <summary>Whether this certificate has a session replay worth acting on.The value can be one of the following:- ``&quot;available&quot;`` — the replay artifacts are stored and at least one consumer interaction was recorded.- ``&quot;unavailable&quot;`` — there is no replay that proves consent. This means the replay does not evidence consent, NOT that it will fail to load: a certificate with a snapshot but no recorded interactions renders a static page without error and is still reported as ``&quot;unavailable&quot;``.- ``&quot;masked&quot;`` — rendering is intentionally withheld because the certificate is masked. Web certificates only.- ``&quot;not_applicable&quot;`` — this certificate type has no session replay. Mobile, Facebook, and Social certificates.- ``null`` — the status could not be calculated. It is never a conclusion about the certificate.</summary>
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results_session_replay_status? SessionReplayStatus { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results"/> and sets the default values.
         /// </summary>
@@ -60,6 +62,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
                 { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
                 { "masked_cert_url", n => { MaskedCertUrl = n.GetStringValue(); } },
                 { "previously_retained", n => { PreviouslyRetained = n.GetBoolValue(); } },
+                { "session_replay_status", n => { SessionReplayStatus = n.GetEnumValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results_session_replay_status>(); } },
             };
         }
         /// <summary>
@@ -72,6 +75,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             writer.WriteStringValue("expires_at", ExpiresAt);
             writer.WriteStringValue("masked_cert_url", MaskedCertUrl);
             writer.WriteBoolValue("previously_retained", PreviouslyRetained);
+            writer.WriteEnumValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results_session_replay_status>("session_replay_status", SessionReplayStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

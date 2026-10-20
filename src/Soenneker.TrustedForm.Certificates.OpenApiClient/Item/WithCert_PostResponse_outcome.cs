@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
 {
-    /// <summary>  The overall outcome of executed operations. Indicates whether the call succeeded, failed, or resulted in an error.  Best practice is to use this property to determine if you should purchase a lead. A `failure` or `error`  indicate that the lead should not be contacted. The reason for failure or error is revealed in the `reason` property.</summary>
+    /// <summary>The overall outcome of executed operations. Indicates whether the call succeeded, failed, or resulted in an error. Best practice is to use this property to determine if you should purchase a lead. A `failure` or `error` indicate that the lead should not be contacted. The reason for failure or error is revealed in the `reason` property.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WithCert_PostResponse_outcome
     {

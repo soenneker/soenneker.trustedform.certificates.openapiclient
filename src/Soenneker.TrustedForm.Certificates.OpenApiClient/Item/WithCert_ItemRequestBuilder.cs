@@ -34,8 +34,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
         {
         }
         /// <summary>
-        /// The TrustedForm Certificate API is able to perform multiple operations based on the parameters sent in the request.Each operation is demonstrated in the request body documentation. The overall outcome of the operations is revealedby the `outcome` property. Best practice is to base your purchase decision on this property.Separate documentation about the parameters and results of each operation is available in the Operationsreference. and can be used alone or in tandem with another operation. The `match_lead` operation is requiredwhen running the `retain` operation.
-        /// Introduction of TrustedForm Certificate API v4.0 <see href="https://community.activeprospect.com/posts/5066720-introducing-trustedform-certificate-api-v4-0" />
+        /// The TrustedForm Certificate API is able to perform multiple operations based on the parameters sent in the request. Each operation is demonstrated in the request body documentation. The overall outcome of the operations is revealed by the `outcome` property. Best practice is to base your purchase decision on this property.Separate documentation about the parameters and results of each operation is available in the Operations reference and can be used alone or in tandem with another operation. The `match_lead` operation is required when running the `retain` operation.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -72,7 +71,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
             return await RequestAdapter.SendAsync<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse>(requestInfo, global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The TrustedForm Certificate API is able to perform multiple operations based on the parameters sent in the request.Each operation is demonstrated in the request body documentation. The overall outcome of the operations is revealedby the `outcome` property. Best practice is to base your purchase decision on this property.Separate documentation about the parameters and results of each operation is available in the Operationsreference. and can be used alone or in tandem with another operation. The `match_lead` operation is requiredwhen running the `retain` operation.
+        /// The TrustedForm Certificate API is able to perform multiple operations based on the parameters sent in the request. Each operation is demonstrated in the request body documentation. The overall outcome of the operations is revealed by the `outcome` property. Best practice is to base your purchase decision on this property.Separate documentation about the parameters and results of each operation is available in the Operations reference and can be used alone or in tandem with another operation. The `match_lead` operation is required when running the `retain` operation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

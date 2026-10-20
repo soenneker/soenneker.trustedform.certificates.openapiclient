@@ -14,7 +14,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>  The legal name of the advertiser used to perform the 1:1 consent language check. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
+        /// <summary>The legal name of the advertiser used to perform the 1:1 consent language check. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AdvertiserName { get; set; }
@@ -30,11 +30,11 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_languages> Languages { get; set; }
 #endif
-        /// <summary>  The number indicating the minimum contrast ratio required between the consent language text and background. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
+        /// <summary>The number indicating the minimum contrast ratio required between the consent language text and background. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
         public double? MinContrastRatioRequired { get; set; }
-        /// <summary>  The number indicating the minimum font size required for the consent language. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
+        /// <summary>The number indicating the minimum font size required for the consent language. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
         public double? MinFontSizePxRequired { get; set; }
-        /// <summary>  An array of strings that lists the opt-in types that are allowed. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided through either method.</summary>
+        /// <summary>An array of strings that lists the opt-in types that are allowed. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided through either method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_opt_in_types_allowed?>? OptInTypesAllowed { get; set; }

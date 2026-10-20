@@ -14,11 +14,11 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>    A `boolean` indicating if the specified `email` was found on the    certificate. A `null` value indicates that no emails were    provided.</summary>
+        /// <summary>A `boolean` indicating if the specified `email` was found on the certificate. A `null` value indicates that no emails were provided.</summary>
         public bool? EmailMatch { get; set; }
-        /// <summary>    A `boolean` indicating if the specified `phone` was found on the    certificate. A `null` value indicates that a phone number was    not provided.</summary>
+        /// <summary>A `boolean` indicating if the specified `phone` was found on the certificate. A `null` value indicates that a phone number was not provided.</summary>
         public bool? PhoneMatch { get; set; }
-        /// <summary>    A `boolean` indicating if any matches were found during the lead    matching operation. A `null` value indicates that lead matching    was not performed.</summary>
+        /// <summary>A `boolean` indicating if any matches were found during the lead matching operation. A `null` value indicates that lead matching was not performed.</summary>
         public bool? Success { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult_result"/> and sets the default values.

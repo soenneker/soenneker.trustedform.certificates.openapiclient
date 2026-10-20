@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     /// <summary>
-    /// An object containing properties that provide information about the consumer&apos;s operating system.
+    /// An object containing properties that provide information about the version of the consumer&apos;s operating system.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WebInsightsResult_properties_os : IAdditionalDataHolder, IParsable
+    public partial class InsightsResult_properties_os_version : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A human-friendly version of the operating system information parsed from the user-agent.</summary>
+        /// <summary>A string containing the version of the consumer&apos;s operating system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Full { get; set; }
@@ -23,40 +23,46 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public string Full { get; set; }
 #endif
-        /// <summary>A boolean indicating that the form was filled out on a mobile device or tablet, based on the user-agent.</summary>
-        public bool? IsMobile { get; set; }
-        /// <summary>The operating system&apos;s name.</summary>
+        /// <summary>A string containing the major version of the consumer&apos;s operating system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Major { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Major { get; set; }
 #endif
-        /// <summary>An object containing properties that provide information about the version of the consumer&apos;s operating system.</summary>
+        /// <summary>A string containing the minor version of the consumer&apos;s operating system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os_version? Version { get; set; }
+        public string? Minor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os_version Version { get; set; }
+        public string Minor { get; set; }
+#endif
+        /// <summary>A string containing the patch version of the consumer&apos;s operating system.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Patch { get; set; }
+#nullable restore
+#else
+        public string Patch { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_os_version"/> and sets the default values.
         /// </summary>
-        public WebInsightsResult_properties_os()
+        public InsightsResult_properties_os_version()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os"/></returns>
+        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_os_version"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_os_version CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os();
+            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_os_version();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,9 +73,9 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "full", n => { Full = n.GetStringValue(); } },
-                { "is_mobile", n => { IsMobile = n.GetBoolValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "version", n => { Version = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os_version>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os_version.CreateFromDiscriminatorValue); } },
+                { "major", n => { Major = n.GetStringValue(); } },
+                { "minor", n => { Minor = n.GetStringValue(); } },
+                { "patch", n => { Patch = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -80,9 +86,9 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("full", Full);
-            writer.WriteBoolValue("is_mobile", IsMobile);
-            writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.WebInsightsResult_properties_os_version>("version", Version);
+            writer.WriteStringValue("major", Major);
+            writer.WriteStringValue("minor", Minor);
+            writer.WriteStringValue("patch", Patch);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

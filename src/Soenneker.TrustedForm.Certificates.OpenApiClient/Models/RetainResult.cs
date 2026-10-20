@@ -14,7 +14,15 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>        Any text that may help you identify the lead associated with the        certificate such as a unique lead        identifier or URL pointing to the lead in another system. This value        will be displayed in your copy of        the certificate for your future reference.</summary>
+        /// <summary>The campaign identifier submitted with the retain request, if provided.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CampaignId { get; set; }
+#nullable restore
+#else
+        public string CampaignId { get; set; }
+#endif
+        /// <summary>Any text that may help you identify the lead associated with the certificate such as a unique lead identifier or URL pointing to the lead in another system. This value will be displayed in your copy of the certificate for your future reference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Reference { get; set; }
@@ -30,7 +38,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results Results { get; set; }
 #endif
-        /// <summary>    When retaining a certificate, you can optionally pass the vendor    name. This is intended for tracking the name    of the company that provided the lead associated with the    certificate. TrustedForm will record this value on the    certificate stored in your account. Other accounts cannot see this    value. When you use TrustedForm reporting,    you can easily filter or group by vendor.</summary>
+        /// <summary>When retaining a certificate, you can optionally pass the vendor name. This is intended for tracking the name of the company that provided the lead associated with the certificate. TrustedForm will record this value on the certificate stored in your account. Other accounts cannot see this value. When you use TrustedForm reporting, you can easily filter or group by vendor.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Vendor { get; set; }
@@ -63,6 +71,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
                 { "reference", n => { Reference = n.GetStringValue(); } },
                 { "results", n => { Results = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results.CreateFromDiscriminatorValue); } },
                 { "vendor", n => { Vendor = n.GetStringValue(); } },
@@ -75,6 +84,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("campaign_id", CampaignId);
             writer.WriteStringValue("reference", Reference);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results>("results", Results);
             writer.WriteStringValue("vendor", Vendor);

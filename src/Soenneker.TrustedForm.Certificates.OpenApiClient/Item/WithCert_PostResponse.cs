@@ -15,7 +15,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The insights property</summary>
+        /// <summary>The Insights data points and page scan results for a certificate.Not every data point is reported by every certificate type. A data point that a certificate&apos;s type does not support is returned as `null` when requested.| Property | Web | Mobile | Facebook Lead Ads | Social || --- | --- | --- | --- | --- || `age_seconds` | ✓ | ✓ | ✓ | ✓ || `approx_ip_geo` | ✓ | ✓ | — | ✓ || `bot_detected` | ✓ | — | — | — || `browser` | ✓ | — | — | — || `confirmed_owner` | ✓ | ✓ | ✓ | ✓ || `created_at` | ✓ | ✓ | ✓ | ✓ || `domain` | ✓ | — | — | ✓ || `expires_at` | ✓ | ✓ | ✓ | ✓ || `form_input_kpm` | ✓ | — | — | — || `form_input_method` | ✓ | — | — | — || `form_input_wpm` | ✓ | — | — | — || `ip` | ✓ | ✓ | — | ✓ || `is_framed` | ✓ | — | — | — || `is_masked` | ✓ | ✓ | — | — || `num_sensitive_content_elements` | ✓ | — | — | — || `num_sensitive_form_elements` | ✓ | — | — | — || `os` | ✓ | ✓ | — | ✓ || `page_url` | ✓ | — | — | — || `parent_page_url` | ✓ | — | — | — || `seconds_on_page` | ✓ | ✓ | ✓ | ✓ || `session_replay_status` | ✓ | ✓ | ✓ | ✓ |</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult? Insights { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
 #else
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult Insights { get; set; }
 #endif
-        /// <summary>  The result of the `match_lead` operation. The `email` and `phone` parameters are echoed and the  `result` property reports the outcome of the operation. More information is [available in our KB](https://community.activeprospect.com/posts/4766190-trustedform-lead-matching).  If the operation result is not a `success`, TrustedForm was unable to confirm that the consumer information  collected on the cert matches the lead it came with. This is a strong signal that the lead should not be contacted.  The result of the `match_lead` operation does not impact the behavior of the `retain` operation.</summary>
+        /// <summary>The result of the `match_lead` operation. The `email` and `phone` parameters are echoed and the `result` property reports the outcome of the operation. More information is [available in our KB](https://support.activeprospect.com/hc/en-us/articles/44098172948884-TrustedForm-Lead-Matching).If the operation result is not a `success`, TrustedForm was unable to confirm that the consumer information collected on the cert matches the lead it came with. This is a strong signal that the lead should not be contacted.The result of the `match_lead` operation does not impact the behavior of the `retain` operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult? MatchLead { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
 #else
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult MatchLead { get; set; }
 #endif
-        /// <summary>  The overall outcome of executed operations. Indicates whether the call succeeded, failed, or resulted in an error.  Best practice is to use this property to determine if you should purchase a lead. A `failure` or `error`  indicate that the lead should not be contacted. The reason for failure or error is revealed in the `reason` property.</summary>
+        /// <summary>The overall outcome of executed operations. Indicates whether the call succeeded, failed, or resulted in an error. Best practice is to use this property to determine if you should purchase a lead. A `failure` or `error` indicate that the lead should not be contacted. The reason for failure or error is revealed in the `reason` property.</summary>
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse_outcome? Outcome { get; set; }
         /// <summary>Explanation for a `failure` or `error`, otherwise `null`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

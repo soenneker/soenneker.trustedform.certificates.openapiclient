@@ -20,6 +20,10 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         #pragma warning disable CS1591
         Bot_detected,
         #pragma warning restore CS1591
+        [EnumMember(Value = "browser")]
+        #pragma warning disable CS1591
+        Browser,
+        #pragma warning restore CS1591
         [EnumMember(Value = "confirmed_owner")]
         #pragma warning disable CS1591
         Confirmed_owner,
@@ -83,6 +87,10 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         [EnumMember(Value = "seconds_on_page")]
         #pragma warning disable CS1591
         Seconds_on_page,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "session_replay_status")]
+        #pragma warning disable CS1591
+        Session_replay_status,
         #pragma warning restore CS1591
     }
 }

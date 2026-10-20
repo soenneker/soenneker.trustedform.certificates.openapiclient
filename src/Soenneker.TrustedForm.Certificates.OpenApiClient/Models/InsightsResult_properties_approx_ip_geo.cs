@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     /// <summary>
-    /// An object containing properties that provide information about the consumer’s location at the time the certificate was created based on their IP address.
+    /// An object containing properties that provide information about the consumer’s location at the time the certificate was created based on their IP address.Supported: Web, Mobile, Social.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class MobileInsightsResult_properties_approx_ip_geo : IAdditionalDataHolder, IParsable
+    public partial class InsightsResult_properties_approx_ip_geo : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -60,21 +60,21 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public string TimeZone { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult_properties_approx_ip_geo"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_approx_ip_geo"/> and sets the default values.
         /// </summary>
-        public MobileInsightsResult_properties_approx_ip_geo()
+        public InsightsResult_properties_approx_ip_geo()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult_properties_approx_ip_geo"/></returns>
+        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_approx_ip_geo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult_properties_approx_ip_geo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_approx_ip_geo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MobileInsightsResult_properties_approx_ip_geo();
+            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_approx_ip_geo();
         }
         /// <summary>
         /// The deserialization information for the current model
