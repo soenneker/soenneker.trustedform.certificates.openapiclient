@@ -211,7 +211,7 @@
                 "page_url": "The URL of the page hosting TrustedForm Certify.",
                 "parent_page_url": "The parent URL of the page hosting TrustedForm Certify, if framed.",
                 "seconds_on_page": "The time in seconds between when TrustedForm Certify was loaded and when the most recent cert event was received.",
-                "session_replay_status": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 the replay artifacts are stored and at least one consumer interaction was recorded.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 there is no replay that proves consent. This means the replay does not evidence consent, NOT that it will fail to load: a certificate with a snapshot but no recorded interactions renders a static page without error and is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n"
+                "session_replay_status": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 every page of the certificate has a stored snapshot and at least one recorded event of any type.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n"
               }
             },
             "type": "array"
@@ -602,7 +602,7 @@
                 "type": "number"
               },
               "session_replay_status": {
-                "description": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 the replay artifacts are stored and at least one consumer interaction was recorded.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 there is no replay that proves consent. This means the replay does not evidence consent, NOT that it will fail to load: a certificate with a snapshot but no recorded interactions renders a static page without error and is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
+                "description": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 every page of the certificate has a stored snapshot and at least one recorded event of any type.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
                 "enum": [
                   "available",
                   "unavailable",
@@ -915,7 +915,7 @@
                 "type": "boolean"
               },
               "session_replay_status": {
-                "description": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 the replay artifacts are stored and at least one consumer interaction was recorded.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 there is no replay that proves consent. This means the replay does not evidence consent, NOT that it will fail to load: a certificate with a snapshot but no recorded interactions renders a static page without error and is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n",
+                "description": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 every page of the certificate has a stored snapshot and at least one recorded event of any type.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n",
                 "enum": [
                   "available",
                   "unavailable",
@@ -1092,7 +1092,7 @@
         "type": "object"
       },
       "VerifyParameters": {
-        "description": "The \u0060advertiser_name\u0060 parameter is optional but is required to populate the \u0060one_to_one\u0060 property.\n\nThe \u0060advertiser_name\u0060 parameter only applies to the One to One Consent value (returned as \u0060one_to_one\u0060). It has no effect on\nany other values returned by the Verify call.\n\nThe \u0060min_font_size_px_required\u0060, \u0060min_contrast_ratio_required\u0060, and \u0060opt_in_types_allowed\u0060 parameters are optional.\n",
+        "description": "The \u0060advertiser_name\u0060 parameter is optional but is required to populate the \u0060one_to_one\u0060 property.\n\nThe \u0060advertiser_name\u0060 parameter only applies to the One to One Consent value (returned as \u0060one_to_one\u0060). It has no effect on\nany other values returned by the Verify call.\n\nThe \u0060consent_language_acceptance_enabled\u0060, \u0060min_font_size_px_required\u0060, \u0060min_contrast_ratio_required\u0060, and \u0060opt_in_types_allowed\u0060 parameters are optional.\n",
         "example": {
           "advertiser_name": "Acme Inc.",
           "min_contrast_ratio_required": 7,
@@ -1108,6 +1108,11 @@
             "description": "The name of the legal entity for an advertiser, used to determine if they were given consent in a one-to-one manner. Normalized to be case-insensitive, ignore extra spaces, and omit non-alphanumeric characters (e.g., \u201CAcme Inc.\u201D and \u201Cacme inc\u201D are the same). This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
             "example": "Acme Inc.",
             "type": "string"
+          },
+          "consent_language_acceptance_enabled": {
+            "description": "Whether to check consent language for approval status and factor it into a verify request\u0027s outcome. If included the true or false sent in consent_language_acceptance_enabled field overrides the saved account setting for this request only. If omitted, the saved setting applies.\n",
+            "example": true,
+            "type": "boolean"
           },
           "min_contrast_ratio_required": {
             "description": "The number indicating the minimum contrast ratio required between the consent language text and background. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
@@ -1159,6 +1164,7 @@
       "VerifyResult": {
         "example": {
           "advertiser_name": "Acme Inc.",
+          "consent_language_acceptance_enabled": true,
           "languages": [
             {
               "text": "By clicking on the \u0027Get Rates\u0027 button below, I consent to be contacted"
@@ -1185,6 +1191,10 @@
           "advertiser_name": {
             "description": "The legal name of the advertiser used to perform the 1:1 consent language check. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
             "type": "string"
+          },
+          "consent_language_acceptance_enabled": {
+            "description": "A boolean indicating whether the consent language acceptance check was applied to this request. This value can be passed in the request or set via the consent language settings, and reflects whichever took effect. When \u0060false\u0060, \u0060result.language_approved\u0060 is returned as \u0060null\u0060.\n",
+            "type": "boolean"
           },
           "languages": {
             "description": "A list of the consent languages detected within the certificate",
@@ -1228,7 +1238,8 @@
                 "type": "boolean"
               },
               "language_approved": {
-                "description": "A boolean indicating if any of the consent languages found have been approved in your account\u2019s consent language manager.",
+                "description": "A boolean indicating if any of the consent languages found have been approved in your account\u2019s consent language manager. A \u0060null\u0060 value is returned when the consent language acceptance check is disabled by the account setting or a request override.",
+                "nullable": true,
                 "type": "boolean"
               },
               "min_contrast_ratio_satisfied": {

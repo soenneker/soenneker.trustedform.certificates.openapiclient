@@ -22,6 +22,8 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public string AdvertiserName { get; set; }
 #endif
+        /// <summary>A boolean indicating whether the consent language acceptance check was applied to this request. This value can be passed in the request or set via the consent language settings, and reflects whichever took effect. When `false`, `result.language_approved` is returned as `null`.</summary>
+        public bool? ConsentLanguageAcceptanceEnabled { get; set; }
         /// <summary>A list of the consent languages detected within the certificate</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,6 +78,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "advertiser_name", n => { AdvertiserName = n.GetStringValue(); } },
+                { "consent_language_acceptance_enabled", n => { ConsentLanguageAcceptanceEnabled = n.GetBoolValue(); } },
                 { "languages", n => { Languages = n.GetCollectionOfObjectValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_languages>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_languages.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "min_contrast_ratio_required", n => { MinContrastRatioRequired = n.GetDoubleValue(); } },
                 { "min_font_size_px_required", n => { MinFontSizePxRequired = n.GetDoubleValue(); } },
@@ -91,6 +94,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("advertiser_name", AdvertiserName);
+            writer.WriteBoolValue("consent_language_acceptance_enabled", ConsentLanguageAcceptanceEnabled);
             writer.WriteCollectionOfObjectValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_languages>("languages", Languages);
             writer.WriteDoubleValue("min_contrast_ratio_required", MinContrastRatioRequired);
             writer.WriteDoubleValue("min_font_size_px_required", MinFontSizePxRequired);

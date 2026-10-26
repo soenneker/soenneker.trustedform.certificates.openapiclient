@@ -17,7 +17,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A boolean indicating whether the form was successfully submitted by the consumer. true means a form submission was detected, while false indicates that the form was abandoned before submission. This field will only influence the one_to_one check result, not the overall Verify outcome.</summary>
         public bool? FormSubmitted { get; set; }
-        /// <summary>A boolean indicating if any of the consent languages found have been approved in your account’s consent language manager.</summary>
+        /// <summary>A boolean indicating if any of the consent languages found have been approved in your account’s consent language manager. A `null` value is returned when the consent language acceptance check is disabled by the account setting or a request override.</summary>
         public bool? LanguageApproved { get; set; }
         /// <summary>A boolean indicating whether the contrast ratio between the consent language text and background meets or exceeds the required minimum contrast ratio.  true means the contrast requirement was satisfied, while false means it was insufficient. A null value is returned when the min_contrast_ratio_required is missing, and the check could not be performed.</summary>
         public bool? MinContrastRatioSatisfied { get; set; }

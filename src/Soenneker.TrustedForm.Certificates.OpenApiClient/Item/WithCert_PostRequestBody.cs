@@ -39,7 +39,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
 #else
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainParameters Retain { get; set; }
 #endif
-        /// <summary>The `advertiser_name` parameter is optional but is required to populate the `one_to_one` property.The `advertiser_name` parameter only applies to the One to One Consent value (returned as `one_to_one`). It has no effect onany other values returned by the Verify call.The `min_font_size_px_required`, `min_contrast_ratio_required`, and `opt_in_types_allowed` parameters are optional.</summary>
+        /// <summary>The `advertiser_name` parameter is optional but is required to populate the `one_to_one` property.The `advertiser_name` parameter only applies to the One to One Consent value (returned as `one_to_one`). It has no effect onany other values returned by the Verify call.The `consent_language_acceptance_enabled`, `min_font_size_px_required`, `min_contrast_ratio_required`, and `opt_in_types_allowed` parameters are optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyParameters? Verify { get; set; }

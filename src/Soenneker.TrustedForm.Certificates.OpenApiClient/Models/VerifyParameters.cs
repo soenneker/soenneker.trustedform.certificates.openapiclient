@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     /// <summary>
-    /// The `advertiser_name` parameter is optional but is required to populate the `one_to_one` property.The `advertiser_name` parameter only applies to the One to One Consent value (returned as `one_to_one`). It has no effect onany other values returned by the Verify call.The `min_font_size_px_required`, `min_contrast_ratio_required`, and `opt_in_types_allowed` parameters are optional.
+    /// The `advertiser_name` parameter is optional but is required to populate the `one_to_one` property.The `advertiser_name` parameter only applies to the One to One Consent value (returned as `one_to_one`). It has no effect onany other values returned by the Verify call.The `consent_language_acceptance_enabled`, `min_font_size_px_required`, `min_contrast_ratio_required`, and `opt_in_types_allowed` parameters are optional.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VerifyParameters : IAdditionalDataHolder, IParsable
@@ -23,6 +23,8 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 #else
         public string AdvertiserName { get; set; }
 #endif
+        /// <summary>Whether to check consent language for approval status and factor it into a verify request&apos;s outcome. If included the true or false sent in consent_language_acceptance_enabled field overrides the saved account setting for this request only. If omitted, the saved setting applies.</summary>
+        public bool? ConsentLanguageAcceptanceEnabled { get; set; }
         /// <summary>The number indicating the minimum contrast ratio required between the consent language text and background. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
         public double? MinContrastRatioRequired { get; set; }
         /// <summary>The number indicating the minimum font size required for the consent language. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
@@ -61,6 +63,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "advertiser_name", n => { AdvertiserName = n.GetStringValue(); } },
+                { "consent_language_acceptance_enabled", n => { ConsentLanguageAcceptanceEnabled = n.GetBoolValue(); } },
                 { "min_contrast_ratio_required", n => { MinContrastRatioRequired = n.GetDoubleValue(); } },
                 { "min_font_size_px_required", n => { MinFontSizePxRequired = n.GetDoubleValue(); } },
                 { "opt_in_types_allowed", n => { OptInTypesAllowed = n.GetCollectionOfEnumValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyParameters_opt_in_types_allowed>()?.AsList(); } },
@@ -74,6 +77,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("advertiser_name", AdvertiserName);
+            writer.WriteBoolValue("consent_language_acceptance_enabled", ConsentLanguageAcceptanceEnabled);
             writer.WriteDoubleValue("min_contrast_ratio_required", MinContrastRatioRequired);
             writer.WriteDoubleValue("min_font_size_px_required", MinFontSizePxRequired);
             writer.WriteCollectionOfEnumValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyParameters_opt_in_types_allowed>("opt_in_types_allowed", OptInTypesAllowed);
