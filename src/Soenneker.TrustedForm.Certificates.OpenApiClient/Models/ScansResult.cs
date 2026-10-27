@@ -127,7 +127,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
                 {
                     result.ScansResultForbiddenString = scansResultForbiddenStringValue;
                 }
-                else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -194,7 +194,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
                 {
                     result.ScansResultRequiredString = scansResultRequiredStringValue;
                 }
-                else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
                 {
                     result.String = stringValue;
                 }
