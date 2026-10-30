@@ -12,7 +12,12 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MatchLeadParameters : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadEmailParameters"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,10 +51,19 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadParameters();
-            result.MatchLeadEmailParameters = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadEmailParameters();
-            result.MatchLeadPhoneEmailParameters = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadPhoneEmailParameters();
-            result.MatchLeadPhoneParameters = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadPhoneParameters();
-            return result;
+            
+            
+            
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("email") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("phone") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("email") != null && parseNode.GetChildNode("phone") != null))();
+            if (result.MatchLeadEmailParameters == null && result.MatchLeadPhoneEmailParameters == null && result.MatchLeadPhoneParameters == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.MatchLeadEmailParameters = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadEmailParameters(), parseNode);
+            if (result.MatchLeadEmailParameters == null && result.MatchLeadPhoneEmailParameters == null && result.MatchLeadPhoneParameters == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.MatchLeadPhoneParameters = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadPhoneParameters(), parseNode);
+            if (result.MatchLeadEmailParameters == null && result.MatchLeadPhoneEmailParameters == null && result.MatchLeadPhoneParameters == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.MatchLeadPhoneEmailParameters = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadPhoneEmailParameters(), parseNode);
+            if (result.MatchLeadEmailParameters == null && result.MatchLeadPhoneEmailParameters == null && result.MatchLeadPhoneParameters == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +83,12 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (MatchLeadEmailParameters == null && MatchLeadPhoneEmailParameters == null && MatchLeadPhoneParameters == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (MatchLeadEmailParameters != null && MatchLeadPhoneEmailParameters == null && MatchLeadPhoneParameters == null) { if (MatchLeadEmailParameters is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchLeadEmailParameters); return; }
+            if (MatchLeadPhoneEmailParameters != null && MatchLeadEmailParameters == null && MatchLeadPhoneParameters == null) { if (MatchLeadPhoneEmailParameters is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchLeadPhoneEmailParameters); return; }
+            if (MatchLeadPhoneParameters != null && MatchLeadEmailParameters == null && MatchLeadPhoneEmailParameters == null) { if (MatchLeadPhoneParameters is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchLeadPhoneParameters); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadEmailParameters>(null, MatchLeadEmailParameters, MatchLeadPhoneEmailParameters, MatchLeadPhoneParameters);
         }

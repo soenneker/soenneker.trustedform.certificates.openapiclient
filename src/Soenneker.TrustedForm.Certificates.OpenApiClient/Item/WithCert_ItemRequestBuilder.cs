@@ -67,6 +67,8 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
                 { "404", global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.NotFound.CreateFromDiscriminatorValue },
                 { "405", global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MethodNotAllowed.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.UnprocessableEntity.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse>(requestInfo, global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

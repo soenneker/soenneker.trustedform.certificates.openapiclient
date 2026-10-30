@@ -12,50 +12,74 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
     #pragma warning disable CS1591
     public partial class WithCert_PostResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("insights") is { } nullNodeInsights && nullNodeInsights.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Insights = null;
+            if (parseNode.GetChildNode("match_lead") is { } nullNodeMatchLead && nullNodeMatchLead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchLead = null;
+            if (parseNode.GetChildNode("outcome") is { } nullNodeOutcome && nullNodeOutcome.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outcome = null;
+            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("retain") is { } nullNodeRetain && nullNodeRetain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retain = null;
+            if (parseNode.GetChildNode("verify") is { } nullNodeVerify && nullNodeVerify.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verify = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Insights data points and page scan results for a certificate.Not every data point is reported by every certificate type. A data point that a certificate&apos;s type does not support is returned as `null` when requested.| Property | Web | Mobile | Facebook Lead Ads | Social || --- | --- | --- | --- | --- || `age_seconds` | ✓ | ✓ | ✓ | ✓ || `approx_ip_geo` | ✓ | ✓ | — | ✓ || `bot_detected` | ✓ | — | — | — || `browser` | ✓ | — | — | — || `confirmed_owner` | ✓ | ✓ | ✓ | ✓ || `created_at` | ✓ | ✓ | ✓ | ✓ || `domain` | ✓ | — | — | ✓ || `expires_at` | ✓ | ✓ | ✓ | ✓ || `form_input_kpm` | ✓ | — | — | — || `form_input_method` | ✓ | — | — | — || `form_input_wpm` | ✓ | — | — | — || `ip` | ✓ | ✓ | — | ✓ || `is_framed` | ✓ | — | — | — || `is_masked` | ✓ | ✓ | — | — || `num_sensitive_content_elements` | ✓ | — | — | — || `num_sensitive_form_elements` | ✓ | — | — | — || `os` | ✓ | ✓ | — | ✓ || `page_url` | ✓ | — | — | — || `parent_page_url` | ✓ | — | — | — || `seconds_on_page` | ✓ | ✓ | ✓ | ✓ || `session_replay_status` | ✓ | ✓ | ✓ | ✓ |</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult? Insights { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult? Insights { get => _explicitNullValueInsights; set { _explicitNullValueInsights = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights"); else _explicitNullProperties?.Remove("insights"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult? _explicitNullValueInsights = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult Insights { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult Insights { get => _explicitNullValueInsights; set { _explicitNullValueInsights = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights"); else _explicitNullProperties?.Remove("insights"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult _explicitNullValueInsights = default!;
 #endif
         /// <summary>The result of the `match_lead` operation. The `email` and `phone` parameters are echoed and the `result` property reports the outcome of the operation. More information is [available in our KB](https://support.activeprospect.com/hc/en-us/articles/44098172948884-TrustedForm-Lead-Matching).If the operation result is not a `success`, TrustedForm was unable to confirm that the consumer information collected on the cert matches the lead it came with. This is a strong signal that the lead should not be contacted.The result of the `match_lead` operation does not impact the behavior of the `retain` operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult? MatchLead { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult? MatchLead { get => _explicitNullValueMatchLead; set { _explicitNullValueMatchLead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match_lead"); else _explicitNullProperties?.Remove("match_lead"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult? _explicitNullValueMatchLead = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult MatchLead { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult MatchLead { get => _explicitNullValueMatchLead; set { _explicitNullValueMatchLead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match_lead"); else _explicitNullProperties?.Remove("match_lead"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult _explicitNullValueMatchLead = default!;
 #endif
         /// <summary>The overall outcome of executed operations. Indicates whether the call succeeded, failed, or resulted in an error. Best practice is to use this property to determine if you should purchase a lead. A `failure` or `error` indicate that the lead should not be contacted. The reason for failure or error is revealed in the `reason` property.</summary>
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse_outcome? Outcome { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse_outcome? Outcome { get => _explicitNullValueOutcome; set { _explicitNullValueOutcome = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outcome"); else _explicitNullProperties?.Remove("outcome"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse_outcome? _explicitNullValueOutcome = default!;
         /// <summary>Explanation for a `failure` or `error`, otherwise `null`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Reason { get; set; }
+        public string? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string? _explicitNullValueReason = default!;
 #nullable restore
 #else
-        public string Reason { get; set; }
+        public string Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string _explicitNullValueReason = default!;
 #endif
         /// <summary>The retain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult? Retain { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult? Retain { get => _explicitNullValueRetain; set { _explicitNullValueRetain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retain"); else _explicitNullProperties?.Remove("retain"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult? _explicitNullValueRetain = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult Retain { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult Retain { get => _explicitNullValueRetain; set { _explicitNullValueRetain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retain"); else _explicitNullProperties?.Remove("retain"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult _explicitNullValueRetain = default!;
 #endif
         /// <summary>The verify property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult? Verify { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult? Verify { get => _explicitNullValueVerify; set { _explicitNullValueVerify = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verify"); else _explicitNullProperties?.Remove("verify"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult? _explicitNullValueVerify = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult Verify { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult Verify { get => _explicitNullValueVerify; set { _explicitNullValueVerify = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verify"); else _explicitNullProperties?.Remove("verify"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult _explicitNullValueVerify = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse"/> and sets the default values.
@@ -72,7 +96,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,6 +127,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
             writer.WriteStringValue("reason", Reason);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult>("retain", Retain);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult>("verify", Verify);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

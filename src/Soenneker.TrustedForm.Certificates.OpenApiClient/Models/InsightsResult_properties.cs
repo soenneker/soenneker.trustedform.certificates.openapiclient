@@ -12,117 +12,177 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InsightsResult_properties : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("age_seconds") is { } nullNodeAgeSeconds && nullNodeAgeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgeSeconds = null;
+            if (parseNode.GetChildNode("approx_ip_geo") is { } nullNodeApproxIpGeo && nullNodeApproxIpGeo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApproxIpGeo = null;
+            if (parseNode.GetChildNode("bot_detected") is { } nullNodeBotDetected && nullNodeBotDetected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BotDetected = null;
+            if (parseNode.GetChildNode("browser") is { } nullNodeBrowser && nullNodeBrowser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Browser = null;
+            if (parseNode.GetChildNode("confirmed_owner") is { } nullNodeConfirmedOwner && nullNodeConfirmedOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfirmedOwner = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("form_input_kpm") is { } nullNodeFormInputKpm && nullNodeFormInputKpm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormInputKpm = null;
+            if (parseNode.GetChildNode("form_input_method") is { } nullNodeFormInputMethod && nullNodeFormInputMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormInputMethod = null;
+            if (parseNode.GetChildNode("form_input_wpm") is { } nullNodeFormInputWpm && nullNodeFormInputWpm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormInputWpm = null;
+            if (parseNode.GetChildNode("ip") is { } nullNodeIp && nullNodeIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ip = null;
+            if (parseNode.GetChildNode("is_framed") is { } nullNodeIsFramed && nullNodeIsFramed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFramed = null;
+            if (parseNode.GetChildNode("is_masked") is { } nullNodeIsMasked && nullNodeIsMasked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsMasked = null;
+            if (parseNode.GetChildNode("num_sensitive_content_elements") is { } nullNodeNumSensitiveContentElements && nullNodeNumSensitiveContentElements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumSensitiveContentElements = null;
+            if (parseNode.GetChildNode("num_sensitive_form_elements") is { } nullNodeNumSensitiveFormElements && nullNodeNumSensitiveFormElements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumSensitiveFormElements = null;
+            if (parseNode.GetChildNode("os") is { } nullNodeOs && nullNodeOs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Os = null;
+            if (parseNode.GetChildNode("page_url") is { } nullNodePageUrl && nullNodePageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageUrl = null;
+            if (parseNode.GetChildNode("parent_page_url") is { } nullNodeParentPageUrl && nullNodeParentPageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentPageUrl = null;
+            if (parseNode.GetChildNode("seconds_on_page") is { } nullNodeSecondsOnPage && nullNodeSecondsOnPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondsOnPage = null;
+            if (parseNode.GetChildNode("session_replay_status") is { } nullNodeSessionReplayStatus && nullNodeSessionReplayStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionReplayStatus = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of seconds since the last user interaction with the certificate.Supported: Web, Mobile, Facebook Lead Ads, Social.</summary>
-        public int? AgeSeconds { get; set; }
+        public int? AgeSeconds { get => _explicitNullValueAgeSeconds; set { _explicitNullValueAgeSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("age_seconds"); else _explicitNullProperties?.Remove("age_seconds"); } }
+        private int? _explicitNullValueAgeSeconds = default!;
         /// <summary>An object containing properties that provide information about the consumer’s location at the time the certificate was created based on their IP address.Supported: Web, Mobile, Social.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_approx_ip_geo? ApproxIpGeo { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_approx_ip_geo? ApproxIpGeo { get => _explicitNullValueApproxIpGeo; set { _explicitNullValueApproxIpGeo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approx_ip_geo"); else _explicitNullProperties?.Remove("approx_ip_geo"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_approx_ip_geo? _explicitNullValueApproxIpGeo = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_approx_ip_geo ApproxIpGeo { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_approx_ip_geo ApproxIpGeo { get => _explicitNullValueApproxIpGeo; set { _explicitNullValueApproxIpGeo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approx_ip_geo"); else _explicitNullProperties?.Remove("approx_ip_geo"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_approx_ip_geo _explicitNullValueApproxIpGeo = default!;
 #endif
         /// <summary>A determination of whether the events documented were likely produced by a non-human entity based on ActiveProspect’s proprietary algorithms.Supported: Web.</summary>
-        public bool? BotDetected { get; set; }
+        public bool? BotDetected { get => _explicitNullValueBotDetected; set { _explicitNullValueBotDetected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bot_detected"); else _explicitNullProperties?.Remove("bot_detected"); } }
+        private bool? _explicitNullValueBotDetected = default!;
         /// <summary>An object containing properties that provide information about the consumer’s browser.Supported: Web.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_browser? Browser { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_browser? Browser { get => _explicitNullValueBrowser; set { _explicitNullValueBrowser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("browser"); else _explicitNullProperties?.Remove("browser"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_browser? _explicitNullValueBrowser = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_browser Browser { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_browser Browser { get => _explicitNullValueBrowser; set { _explicitNullValueBrowser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("browser"); else _explicitNullProperties?.Remove("browser"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_browser _explicitNullValueBrowser = default!;
 #endif
         /// <summary>This field indicates the verified owner of the TrustedForm certificate.The value can be one of the following:- ``&quot;No Verified ActiveProspect Account Identified&quot;`` — no account has been confirmed as the owner of this certificate.- ``&quot;ActiveProspect Verified Owner&quot;`` — the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.- ``&quot;&lt;account name&gt;&quot;`` — the name of the verified account that owns the certificate and has granted permission to confirm ownership.To manage permissions, visit the [Connections](https://account.activeprospect.com/connections/invitations/new) page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.Supported: Web, Mobile, Facebook Lead Ads, Social.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConfirmedOwner { get; set; }
+        public string? ConfirmedOwner { get => _explicitNullValueConfirmedOwner; set { _explicitNullValueConfirmedOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirmed_owner"); else _explicitNullProperties?.Remove("confirmed_owner"); } }
+        private string? _explicitNullValueConfirmedOwner = default!;
 #nullable restore
 #else
-        public string ConfirmedOwner { get; set; }
+        public string ConfirmedOwner { get => _explicitNullValueConfirmedOwner; set { _explicitNullValueConfirmedOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirmed_owner"); else _explicitNullProperties?.Remove("confirmed_owner"); } }
+        private string _explicitNullValueConfirmedOwner = default!;
 #endif
         /// <summary>The UTC ISO8601 formatted date and time when TrustedForm Certify was loaded. For Social certificates, the date and time when the consumer&apos;s interaction with the social platform&apos;s form was recorded.Supported: Web, Mobile, Facebook Lead Ads, Social.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get; set; }
+        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private string? _explicitNullValueCreatedAt = default!;
 #nullable restore
 #else
-        public string CreatedAt { get; set; }
+        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private string _explicitNullValueCreatedAt = default!;
 #endif
         /// <summary>The domain displayed to the consumer during the page visit. For Social certificates, the domain of the social platform that hosted the form shown to the consumer.Supported: Web, Social.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get; set; }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get; set; }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>The UTC ISO8601 formatted date and time when the certificate will expire.Supported: Web, Mobile, Facebook Lead Ads, Social.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpiresAt { get; set; }
+        public string? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private string? _explicitNullValueExpiresAt = default!;
 #nullable restore
 #else
-        public string ExpiresAt { get; set; }
+        public string ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private string _explicitNullValueExpiresAt = default!;
 #endif
         /// <summary>The average number of keystrokes per minute based on the consumer&apos;s rate of form input.Supported: Web.</summary>
-        public double? FormInputKpm { get; set; }
+        public double? FormInputKpm { get => _explicitNullValueFormInputKpm; set { _explicitNullValueFormInputKpm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("form_input_kpm"); else _explicitNullProperties?.Remove("form_input_kpm"); } }
+        private double? _explicitNullValueFormInputKpm = default!;
         /// <summary>The detected input method(s) the consumer used to fill out the form.Supported: Web.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_form_input_method?>? FormInputMethod { get; set; }
+        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_form_input_method?>? FormInputMethod { get => _explicitNullValueFormInputMethod; set { _explicitNullValueFormInputMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("form_input_method"); else _explicitNullProperties?.Remove("form_input_method"); } }
+        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_form_input_method?>? _explicitNullValueFormInputMethod = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_form_input_method?> FormInputMethod { get; set; }
+        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_form_input_method?> FormInputMethod { get => _explicitNullValueFormInputMethod; set { _explicitNullValueFormInputMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("form_input_method"); else _explicitNullProperties?.Remove("form_input_method"); } }
+        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_form_input_method?> _explicitNullValueFormInputMethod = default!;
 #endif
         /// <summary>The approximate number of words per minute calculated by using the form_input_kpm and assuming five characters represent a word.Supported: Web.</summary>
-        public double? FormInputWpm { get; set; }
+        public double? FormInputWpm { get => _explicitNullValueFormInputWpm; set { _explicitNullValueFormInputWpm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("form_input_wpm"); else _explicitNullProperties?.Remove("form_input_wpm"); } }
+        private double? _explicitNullValueFormInputWpm = default!;
         /// <summary>The consumer&apos;s public IP address.Supported: Web, Mobile, Social.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ip { get; set; }
+        public string? Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
+        private string? _explicitNullValueIp = default!;
 #nullable restore
 #else
-        public string Ip { get; set; }
+        public string Ip { get => _explicitNullValueIp; set { _explicitNullValueIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip"); else _explicitNullProperties?.Remove("ip"); } }
+        private string _explicitNullValueIp = default!;
 #endif
         /// <summary>A boolean indicating that the form was displayed within an iframe.Supported: Web.</summary>
-        public bool? IsFramed { get; set; }
+        public bool? IsFramed { get => _explicitNullValueIsFramed; set { _explicitNullValueIsFramed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_framed"); else _explicitNullProperties?.Remove("is_framed"); } }
+        private bool? _explicitNullValueIsFramed = default!;
         /// <summary>A boolean indicating if the certificate is masked and does not show source information nor a session replay.Supported: Web, Mobile.</summary>
-        public bool? IsMasked { get; set; }
+        public bool? IsMasked { get => _explicitNullValueIsMasked; set { _explicitNullValueIsMasked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_masked"); else _explicitNullProperties?.Remove("is_masked"); } }
+        private bool? _explicitNullValueIsMasked = default!;
         /// <summary>Count of how many content elements (e.g. img, div) are marked sensitive and hidden from the session replay.Supported: Web.</summary>
-        public double? NumSensitiveContentElements { get; set; }
+        public double? NumSensitiveContentElements { get => _explicitNullValueNumSensitiveContentElements; set { _explicitNullValueNumSensitiveContentElements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_sensitive_content_elements"); else _explicitNullProperties?.Remove("num_sensitive_content_elements"); } }
+        private double? _explicitNullValueNumSensitiveContentElements = default!;
         /// <summary>Count of how many form elements (e.g. input, textarea) are marked sensitive and hidden from the session replay.Supported: Web.</summary>
-        public double? NumSensitiveFormElements { get; set; }
+        public double? NumSensitiveFormElements { get => _explicitNullValueNumSensitiveFormElements; set { _explicitNullValueNumSensitiveFormElements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_sensitive_form_elements"); else _explicitNullProperties?.Remove("num_sensitive_form_elements"); } }
+        private double? _explicitNullValueNumSensitiveFormElements = default!;
         /// <summary>An object containing properties that provide information about the consumer&apos;s operating system. For Social certificates, the information is as reported by the social platform.Supported: Web, Mobile, Social.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_os? Os { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_os? Os { get => _explicitNullValueOs; set { _explicitNullValueOs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("os"); else _explicitNullProperties?.Remove("os"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_os? _explicitNullValueOs = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_os Os { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_os Os { get => _explicitNullValueOs; set { _explicitNullValueOs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("os"); else _explicitNullProperties?.Remove("os"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_os _explicitNullValueOs = default!;
 #endif
         /// <summary>The URL of the page hosting TrustedForm Certify.Supported: Web.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PageUrl { get; set; }
+        public string? PageUrl { get => _explicitNullValuePageUrl; set { _explicitNullValuePageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_url"); else _explicitNullProperties?.Remove("page_url"); } }
+        private string? _explicitNullValuePageUrl = default!;
 #nullable restore
 #else
-        public string PageUrl { get; set; }
+        public string PageUrl { get => _explicitNullValuePageUrl; set { _explicitNullValuePageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_url"); else _explicitNullProperties?.Remove("page_url"); } }
+        private string _explicitNullValuePageUrl = default!;
 #endif
         /// <summary>The parent URL of the page hosting TrustedForm Certify, if framed.Supported: Web.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentPageUrl { get; set; }
+        public string? ParentPageUrl { get => _explicitNullValueParentPageUrl; set { _explicitNullValueParentPageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_page_url"); else _explicitNullProperties?.Remove("parent_page_url"); } }
+        private string? _explicitNullValueParentPageUrl = default!;
 #nullable restore
 #else
-        public string ParentPageUrl { get; set; }
+        public string ParentPageUrl { get => _explicitNullValueParentPageUrl; set { _explicitNullValueParentPageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_page_url"); else _explicitNullProperties?.Remove("parent_page_url"); } }
+        private string _explicitNullValueParentPageUrl = default!;
 #endif
         /// <summary>The time in seconds between when TrustedForm Certify was loaded and when the most recent cert event was received. For Social certificates, the time in seconds between when the social platform&apos;s form was shown to the consumer and when they submitted it. Facebook Lead Ads certificates have no page session, so the value is always 0.Supported: Web, Mobile, Facebook Lead Ads, Social.</summary>
-        public double? SecondsOnPage { get; set; }
+        public double? SecondsOnPage { get => _explicitNullValueSecondsOnPage; set { _explicitNullValueSecondsOnPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seconds_on_page"); else _explicitNullProperties?.Remove("seconds_on_page"); } }
+        private double? _explicitNullValueSecondsOnPage = default!;
         /// <summary>Whether this certificate has a session replay worth acting on.The value can be one of the following:- ``&quot;available&quot;`` — every page of the certificate has a stored snapshot and at least one recorded event of any type.- ``&quot;unavailable&quot;`` — at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as ``&quot;unavailable&quot;``.- ``&quot;masked&quot;`` — rendering is intentionally withheld because the certificate is masked. Web certificates only.- ``&quot;not_applicable&quot;`` — this certificate type has no session replay. Mobile, Facebook, and Social certificates.- ``null`` — the status could not be calculated. It is never a conclusion about the certificate.Supported: Web, Mobile, Facebook Lead Ads, Social.</summary>
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_session_replay_status? SessionReplayStatus { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_session_replay_status? SessionReplayStatus { get => _explicitNullValueSessionReplayStatus; set { _explicitNullValueSessionReplayStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_replay_status"); else _explicitNullProperties?.Remove("session_replay_status"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_session_replay_status? _explicitNullValueSessionReplayStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties"/> and sets the default values.
         /// </summary>
@@ -138,7 +198,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -199,6 +259,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             writer.WriteStringValue("parent_page_url", ParentPageUrl);
             writer.WriteDoubleValue("seconds_on_page", SecondsOnPage);
             writer.WriteEnumValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult_properties_session_replay_status>("session_replay_status", SessionReplayStatus);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

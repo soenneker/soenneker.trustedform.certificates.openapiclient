@@ -11,27 +11,42 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ScansResult_result : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("forbidden") is { } nullNodeForbidden && nullNodeForbidden.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Forbidden = null;
+            if (parseNode.GetChildNode("required") is { } nullNodeRequired && nullNodeRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Required = null;
+            if (parseNode.GetChildNode("success") is { } nullNodeSuccess && nullNodeSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Success = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An object containing the forbidden scans that were found and not found.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden? Forbidden { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden? Forbidden { get => _explicitNullValueForbidden; set { _explicitNullValueForbidden = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forbidden"); else _explicitNullProperties?.Remove("forbidden"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden? _explicitNullValueForbidden = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden Forbidden { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden Forbidden { get => _explicitNullValueForbidden; set { _explicitNullValueForbidden = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forbidden"); else _explicitNullProperties?.Remove("forbidden"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden _explicitNullValueForbidden = default!;
 #endif
         /// <summary>An object containing the required scans that were found and not found.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required? Required { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required? Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required? _explicitNullValueRequired = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required Required { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required _explicitNullValueRequired = default!;
 #endif
         /// <summary>A boolean indicating if all required text was found and none of the forbidden text was found.&lt;br&gt; Null if page scan parameters are not provided.</summary>
-        public bool? Success { get; set; }
+        public bool? Success { get => _explicitNullValueSuccess; set { _explicitNullValueSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success"); else _explicitNullProperties?.Remove("success"); } }
+        private bool? _explicitNullValueSuccess = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result"/> and sets the default values.
         /// </summary>
@@ -47,7 +62,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden>("forbidden", Forbidden);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_required>("required", Required);
             writer.WriteBoolValue("success", Success);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,40 +12,59 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
     #pragma warning disable CS1591
     public partial class WithCert_PostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("insights") is { } nullNodeInsights && nullNodeInsights.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Insights = null;
+            if (parseNode.GetChildNode("match_lead") is { } nullNodeMatchLead && nullNodeMatchLead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchLead = null;
+            if (parseNode.GetChildNode("retain") is { } nullNodeRetain && nullNodeRetain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retain = null;
+            if (parseNode.GetChildNode("verify") is { } nullNodeVerify && nullNodeVerify.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verify = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Request individual Insights data points (`properties`) to be returned and terms for which to scan for in a certificate session replay.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters? Insights { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters? Insights { get => _explicitNullValueInsights; set { _explicitNullValueInsights = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights"); else _explicitNullProperties?.Remove("insights"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters? _explicitNullValueInsights = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters Insights { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters Insights { get => _explicitNullValueInsights; set { _explicitNullValueInsights = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insights"); else _explicitNullProperties?.Remove("insights"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters _explicitNullValueInsights = default!;
 #endif
         /// <summary>The match_lead property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadParameters? MatchLead { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadParameters? MatchLead { get => _explicitNullValueMatchLead; set { _explicitNullValueMatchLead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match_lead"); else _explicitNullProperties?.Remove("match_lead"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadParameters? _explicitNullValueMatchLead = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadParameters MatchLead { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadParameters MatchLead { get => _explicitNullValueMatchLead; set { _explicitNullValueMatchLead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match_lead"); else _explicitNullProperties?.Remove("match_lead"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadParameters _explicitNullValueMatchLead = default!;
 #endif
         /// <summary>Though both `retain` parameters are optional, we strongly recommend using them. Doing so will record additional metadata on your stored certificate which is often of use down the road.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainParameters? Retain { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainParameters? Retain { get => _explicitNullValueRetain; set { _explicitNullValueRetain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retain"); else _explicitNullProperties?.Remove("retain"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainParameters? _explicitNullValueRetain = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainParameters Retain { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainParameters Retain { get => _explicitNullValueRetain; set { _explicitNullValueRetain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retain"); else _explicitNullProperties?.Remove("retain"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainParameters _explicitNullValueRetain = default!;
 #endif
         /// <summary>The `advertiser_name` parameter is optional but is required to populate the `one_to_one` property.The `advertiser_name` parameter only applies to the One to One Consent value (returned as `one_to_one`). It has no effect onany other values returned by the Verify call.The `consent_language_acceptance_enabled`, `min_font_size_px_required`, `min_contrast_ratio_required`, and `opt_in_types_allowed` parameters are optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyParameters? Verify { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyParameters? Verify { get => _explicitNullValueVerify; set { _explicitNullValueVerify = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verify"); else _explicitNullProperties?.Remove("verify"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyParameters? _explicitNullValueVerify = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyParameters Verify { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyParameters Verify { get => _explicitNullValueVerify; set { _explicitNullValueVerify = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verify"); else _explicitNullProperties?.Remove("verify"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyParameters _explicitNullValueVerify = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostRequestBody"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostRequestBody();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostRequestBody(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadParameters>("match_lead", MatchLead);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainParameters>("retain", Retain);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyParameters>("verify", Verify);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

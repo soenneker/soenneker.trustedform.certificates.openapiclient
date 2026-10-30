@@ -11,29 +11,46 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RetainResult_results : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("masked_cert_url") is { } nullNodeMaskedCertUrl && nullNodeMaskedCertUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaskedCertUrl = null;
+            if (parseNode.GetChildNode("previously_retained") is { } nullNodePreviouslyRetained && nullNodePreviouslyRetained.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviouslyRetained = null;
+            if (parseNode.GetChildNode("session_replay_status") is { } nullNodeSessionReplayStatus && nullNodeSessionReplayStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionReplayStatus = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The UTC ISO8601 formatted date and time when this certificate will no longer be available for API requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpiresAt { get; set; }
+        public string? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private string? _explicitNullValueExpiresAt = default!;
 #nullable restore
 #else
-        public string ExpiresAt { get; set; }
+        public string ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private string _explicitNullValueExpiresAt = default!;
 #endif
         /// <summary>A certificate URL that masks the lead source URL and snapshot</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaskedCertUrl { get; set; }
+        public string? MaskedCertUrl { get => _explicitNullValueMaskedCertUrl; set { _explicitNullValueMaskedCertUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("masked_cert_url"); else _explicitNullProperties?.Remove("masked_cert_url"); } }
+        private string? _explicitNullValueMaskedCertUrl = default!;
 #nullable restore
 #else
-        public string MaskedCertUrl { get; set; }
+        public string MaskedCertUrl { get => _explicitNullValueMaskedCertUrl; set { _explicitNullValueMaskedCertUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("masked_cert_url"); else _explicitNullProperties?.Remove("masked_cert_url"); } }
+        private string _explicitNullValueMaskedCertUrl = default!;
 #endif
         /// <summary>A boolean indicating whether your account had already retained this certificate.</summary>
-        public bool? PreviouslyRetained { get; set; }
+        public bool? PreviouslyRetained { get => _explicitNullValuePreviouslyRetained; set { _explicitNullValuePreviouslyRetained = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previously_retained"); else _explicitNullProperties?.Remove("previously_retained"); } }
+        private bool? _explicitNullValuePreviouslyRetained = default!;
         /// <summary>Whether this certificate has a session replay worth acting on.The value can be one of the following:- ``&quot;available&quot;`` — every page of the certificate has a stored snapshot and at least one recorded event of any type.- ``&quot;unavailable&quot;`` — at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as ``&quot;unavailable&quot;``.- ``&quot;masked&quot;`` — rendering is intentionally withheld because the certificate is masked. Web certificates only.- ``&quot;not_applicable&quot;`` — this certificate type has no session replay. Mobile, Facebook, and Social certificates.- ``null`` — the status could not be calculated. It is never a conclusion about the certificate.</summary>
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results_session_replay_status? SessionReplayStatus { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results_session_replay_status? SessionReplayStatus { get => _explicitNullValueSessionReplayStatus; set { _explicitNullValueSessionReplayStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_replay_status"); else _explicitNullProperties?.Remove("session_replay_status"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results_session_replay_status? _explicitNullValueSessionReplayStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results"/> and sets the default values.
         /// </summary>
@@ -49,7 +66,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,6 +93,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             writer.WriteStringValue("masked_cert_url", MaskedCertUrl);
             writer.WriteBoolValue("previously_retained", PreviouslyRetained);
             writer.WriteEnumValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results_session_replay_status>("session_replay_status", SessionReplayStatus);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

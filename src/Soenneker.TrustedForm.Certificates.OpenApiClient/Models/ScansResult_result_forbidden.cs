@@ -12,24 +12,37 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ScansResult_result_forbidden : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("found") is { } nullNodeFound && nullNodeFound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Found = null;
+            if (parseNode.GetChildNode("not_found") is { } nullNodeNotFound && nullNodeNotFound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotFound = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A list of forbidden scan terms that were found in the recorded content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_found? Found { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_found? Found { get => _explicitNullValueFound; set { _explicitNullValueFound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("found"); else _explicitNullProperties?.Remove("found"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_found? _explicitNullValueFound = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_found Found { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_found Found { get => _explicitNullValueFound; set { _explicitNullValueFound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("found"); else _explicitNullProperties?.Remove("found"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_found _explicitNullValueFound = default!;
 #endif
         /// <summary>A list of forbidden scan terms that were not found in the recorded content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_not_found? NotFound { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_not_found? NotFound { get => _explicitNullValueNotFound; set { _explicitNullValueNotFound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_found"); else _explicitNullProperties?.Remove("not_found"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_not_found? _explicitNullValueNotFound = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_not_found NotFound { get; set; }
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_not_found NotFound { get => _explicitNullValueNotFound; set { _explicitNullValueNotFound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_found"); else _explicitNullProperties?.Remove("not_found"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_not_found _explicitNullValueNotFound = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_found>("found", Found);
             writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_not_found>("not_found", NotFound);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
@@ -100,10 +114,14 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_found CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_found();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_found();
-                if(parseNode.GetStringValue() is string scansResultResultForbiddenFoundStringValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string scansResultResultForbiddenFoundStringValue)
                 {
                     result.ScansResultResultForbiddenFoundString = scansResultResultForbiddenFoundStringValue;
                 }
@@ -127,6 +145,10 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ScansResultResultForbiddenFoundString == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(ScansResultResultForbiddenFoundString != null)
                 {
@@ -167,10 +189,14 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_not_found CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_not_found();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result_forbidden.ScansResult_result_forbidden_not_found();
-                if(parseNode.GetStringValue() is string scansResultResultForbiddenNotFoundStringValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string scansResultResultForbiddenNotFoundStringValue)
                 {
                     result.ScansResultResultForbiddenNotFoundString = scansResultResultForbiddenNotFoundStringValue;
                 }
@@ -194,6 +220,10 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ScansResultResultForbiddenNotFoundString == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(ScansResultResultForbiddenNotFoundString != null)
                 {

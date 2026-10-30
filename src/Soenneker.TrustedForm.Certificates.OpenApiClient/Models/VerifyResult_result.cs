@@ -12,23 +12,44 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VerifyResult_result : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("form_submitted") is { } nullNodeFormSubmitted && nullNodeFormSubmitted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormSubmitted = null;
+            if (parseNode.GetChildNode("language_approved") is { } nullNodeLanguageApproved && nullNodeLanguageApproved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LanguageApproved = null;
+            if (parseNode.GetChildNode("min_contrast_ratio_satisfied") is { } nullNodeMinContrastRatioSatisfied && nullNodeMinContrastRatioSatisfied.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinContrastRatioSatisfied = null;
+            if (parseNode.GetChildNode("min_font_size_px_satisfied") is { } nullNodeMinFontSizePxSatisfied && nullNodeMinFontSizePxSatisfied.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinFontSizePxSatisfied = null;
+            if (parseNode.GetChildNode("one_to_one") is { } nullNodeOneToOne && nullNodeOneToOne.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneToOne = null;
+            if (parseNode.GetChildNode("opt_in_types_satisfied") is { } nullNodeOptInTypesSatisfied && nullNodeOptInTypesSatisfied.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptInTypesSatisfied = null;
+            if (parseNode.GetChildNode("success") is { } nullNodeSuccess && nullNodeSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Success = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A boolean indicating whether the form was successfully submitted by the consumer. true means a form submission was detected, while false indicates that the form was abandoned before submission. This field will only influence the one_to_one check result, not the overall Verify outcome.</summary>
-        public bool? FormSubmitted { get; set; }
+        public bool? FormSubmitted { get => _explicitNullValueFormSubmitted; set { _explicitNullValueFormSubmitted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("form_submitted"); else _explicitNullProperties?.Remove("form_submitted"); } }
+        private bool? _explicitNullValueFormSubmitted = default!;
         /// <summary>A boolean indicating if any of the consent languages found have been approved in your account’s consent language manager. A `null` value is returned when the consent language acceptance check is disabled by the account setting or a request override.</summary>
-        public bool? LanguageApproved { get; set; }
+        public bool? LanguageApproved { get => _explicitNullValueLanguageApproved; set { _explicitNullValueLanguageApproved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language_approved"); else _explicitNullProperties?.Remove("language_approved"); } }
+        private bool? _explicitNullValueLanguageApproved = default!;
         /// <summary>A boolean indicating whether the contrast ratio between the consent language text and background meets or exceeds the required minimum contrast ratio.  true means the contrast requirement was satisfied, while false means it was insufficient. A null value is returned when the min_contrast_ratio_required is missing, and the check could not be performed.</summary>
-        public bool? MinContrastRatioSatisfied { get; set; }
+        public bool? MinContrastRatioSatisfied { get => _explicitNullValueMinContrastRatioSatisfied; set { _explicitNullValueMinContrastRatioSatisfied = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_contrast_ratio_satisfied"); else _explicitNullProperties?.Remove("min_contrast_ratio_satisfied"); } }
+        private bool? _explicitNullValueMinContrastRatioSatisfied = default!;
         /// <summary>A boolean indicating whether the consent language meets or exceeds the required minimum font size. true means the font size requirement was satisfied, while false indicates it was not. A null value is returned when the min_font_size_px_required is missing, and the check could not be performed.</summary>
-        public bool? MinFontSizePxSatisfied { get; set; }
+        public bool? MinFontSizePxSatisfied { get => _explicitNullValueMinFontSizePxSatisfied; set { _explicitNullValueMinFontSizePxSatisfied = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_font_size_px_satisfied"); else _explicitNullProperties?.Remove("min_font_size_px_satisfied"); } }
+        private bool? _explicitNullValueMinFontSizePxSatisfied = default!;
         /// <summary>A boolean indicating if the cert structure satisfied the requirements for 1:1 consent. You must pass the `advertiser_name` for the check to be performed. A `null` value is returned when consent tags were not used, or when the `advertiser_name` is missing, and the consent check could not be performed.</summary>
-        public bool? OneToOne { get; set; }
+        public bool? OneToOne { get => _explicitNullValueOneToOne; set { _explicitNullValueOneToOne = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("one_to_one"); else _explicitNullProperties?.Remove("one_to_one"); } }
+        private bool? _explicitNullValueOneToOne = default!;
         /// <summary>A boolean indicating whether all the opt-in types on the form match one or more of the allowed opt-in types specified in the opt_in_types_allowed parameter. true means all opt-in types on the form meet the specified criteria.  false means at least one opt-in type on the form does not match any of the allowed types. A null value is returned when the opt_in_types_allowed is missing, and the check could not be performed.</summary>
-        public bool? OptInTypesSatisfied { get; set; }
+        public bool? OptInTypesSatisfied { get => _explicitNullValueOptInTypesSatisfied; set { _explicitNullValueOptInTypesSatisfied = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_types_satisfied"); else _explicitNullProperties?.Remove("opt_in_types_satisfied"); } }
+        private bool? _explicitNullValueOptInTypesSatisfied = default!;
         /// <summary>A boolean indicating whether all Verify checks succeeded.</summary>
-        public bool? Success { get; set; }
+        public bool? Success { get => _explicitNullValueSuccess; set { _explicitNullValueSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success"); else _explicitNullProperties?.Remove("success"); } }
+        private bool? _explicitNullValueSuccess = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_result"/> and sets the default values.
         /// </summary>
@@ -44,7 +65,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_result CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_result();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_result(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,6 +98,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             writer.WriteBoolValue("one_to_one", OneToOne);
             writer.WriteBoolValue("opt_in_types_satisfied", OptInTypesSatisfied);
             writer.WriteBoolValue("success", Success);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
