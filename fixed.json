@@ -1,0 +1,1811 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Overview",
+    "termsOfService": "https://activeprospect.com/trustedform-eula",
+    "contact": {
+      "name": "ActiveProspect Support Team",
+      "url": "https://support.activeprospect.com",
+      "email": "support@activeprospect.com"
+    },
+    "version": "4.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://cert.trustedform.com",
+      "description": "The base URL for production."
+    }
+  ],
+  "paths": {
+    "/{certId}": {
+      "post": {
+        "tags": [
+          "Certificate URL"
+        ],
+        "summary": "Run Certificate Operations",
+        "description": "The TrustedForm Certificate API is able to perform multiple operations based on the parameters sent in the request. Each operation is demonstrated in the request body documentation. The overall outcome of the operations is revealed by the \u0060outcome\u0060 property. Best practice is to base your purchase decision on this property.\n\nSeparate documentation about the parameters and results of each operation is available in the Operations reference and can be used alone or in tandem with another operation. The \u0060match_lead\u0060 operation is required when running the \u0060retain\u0060 operation.\n",
+        "operationId": "ClaimerWebClaimControllerRunOperations",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "\u0060application/json\u0060\n",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "If your account is configured to use an earlier api-version, optionally include this header to override the default behavior and force usage of v4.0. Defaults to your currently configured API version, visible in [your settings](https://app.trustedform.com/settings).\n",
+            "schema": {
+              "type": "string",
+              "example": "4.0"
+            }
+          },
+          {
+            "name": "certId",
+            "in": "path",
+            "description": "The certificate ID format varies depending on the type of certificate. Certificate ID length will not exceed 255 characters.\n",
+            "required": true,
+            "schema": {
+              "maxLength": 255,
+              "type": "string"
+            },
+            "example": "eb9fc4dd9bed9ad451a5648946cf4bf09b5bb947"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClaimerWebClaimControllerRunOperationsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClaimerWebClaimControllerRunOperations200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "405": {
+            "$ref": "#/components/responses/MethodNotAllowed"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          }
+        },
+        "security": [
+          {
+            "Basic": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BadRequest": {
+        "title": "BadRequest",
+        "required": [
+          "errors",
+          "message",
+          "outcome",
+          "reason"
+        ],
+        "type": "object",
+        "properties": {
+          "errors": {
+            "$ref": "#/components/schemas/BadRequestErrors"
+          },
+          "message": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "errors": {
+            "detail": "Malformed certificate id"
+          },
+          "message": "Malformed certificate id",
+          "outcome": "error",
+          "reason": "Malformed certificate id"
+        }
+      },
+      "Forbidden": {
+        "title": "Forbidden",
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "outcome": "error",
+          "reason": "Unavailable product requested"
+        }
+      },
+      "InsightsParameters": {
+        "title": "InsightsParameters",
+        "required": [
+          "properties"
+        ],
+        "type": "object",
+        "properties": {
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InsightsParametersPropertiesItem"
+            },
+            "description": "A list of the Insights data points you would like to be returned in the response. Some \u0060properties\u0060 are not compatible with all certificate types and will return a null value. Only contracted \u0060properties\u0060 are available to query. Your account will only be charged for properties that are returned.\n\nSee InsightsResult for \u0060form_input_method\u0060 values.\n"
+          },
+          "scans": {
+            "$ref": "#/components/schemas/InsightsParametersScans"
+          }
+        },
+        "description": "Request individual Insights data points (\u0060properties\u0060) to be returned and terms for which to scan for in a certificate session replay.\n",
+        "example": {
+          "properties": [
+            "seconds_on_page",
+            "domain",
+            "bot_detected",
+            "confirmed_owner",
+            "ip",
+            "approx_ip_geo",
+            "browser",
+            "age_seconds",
+            "created_at",
+            "expires_at",
+            "form_input_method",
+            "form_input_kpm",
+            "form_input_wpm",
+            "is_framed",
+            "is_masked",
+            "num_sensitive_content_elements",
+            "num_sensitive_form_elements",
+            "page_url",
+            "parent_page_url",
+            "os",
+            "session_replay_status"
+          ],
+          "scans": {
+            "forbidden": [
+              "free",
+              "ipad"
+            ],
+            "required": [
+              "home security system"
+            ]
+          }
+        },
+        "x-tags": [
+          "Insights"
+        ]
+      },
+      "InsightsRequest": {
+        "title": "InsightsRequest",
+        "type": "object",
+        "properties": {
+          "insights": {
+            "$ref": "#/components/schemas/InsightsParameters"
+          }
+        }
+      },
+      "InsightsResponse": {
+        "title": "InsightsResponse",
+        "type": "object",
+        "properties": {
+          "insights": {
+            "$ref": "#/components/schemas/InsightsResult"
+          }
+        }
+      },
+      "InsightsResult": {
+        "title": "InsightsResult",
+        "type": "object",
+        "properties": {
+          "properties": {
+            "$ref": "#/components/schemas/InsightsResultProperties"
+          },
+          "scans": {
+            "$ref": "#/components/schemas/ScansResult"
+          }
+        },
+        "description": "The Insights data points and page scan results for a certificate.\n\nNot every data point is reported by every certificate type. A data point that a certificate\u0027s type does not support is returned as \u0060null\u0060 when requested.\n\n| Property | Web | Mobile | Facebook Lead Ads | Social |\n| --- | --- | --- | --- | --- |\n| \u0060age_seconds\u0060 | \u2713 | \u2713 | \u2713 | \u2713 |\n| \u0060approx_ip_geo\u0060 | \u2713 | \u2713 | \u2014 | \u2713 |\n| \u0060bot_detected\u0060 | \u2713 | \u2014 | \u2014 | \u2014 |\n| \u0060browser\u0060 | \u2713 | \u2014 | \u2014 | \u2014 |\n| \u0060confirmed_owner\u0060 | \u2713 | \u2713 | \u2713 | \u2713 |\n| \u0060created_at\u0060 | \u2713 | \u2713 | \u2713 | \u2713 |\n| \u0060domain\u0060 | \u2713 | \u2014 | \u2014 | \u2713 |\n| \u0060expires_at\u0060 | \u2713 | \u2713 | \u2713 | \u2713 |\n| \u0060form_input_kpm\u0060 | \u2713 | \u2014 | \u2014 | \u2014 |\n| \u0060form_input_method\u0060 | \u2713 | \u2014 | \u2014 | \u2014 |\n| \u0060form_input_wpm\u0060 | \u2713 | \u2014 | \u2014 | \u2014 |\n| \u0060ip\u0060 | \u2713 | \u2713 | \u2014 | \u2713 |\n| \u0060is_framed\u0060 | \u2713 | \u2014 | \u2014 | \u2014 |\n| \u0060is_masked\u0060 | \u2713 | \u2713 | \u2014 | \u2014 |\n| \u0060num_sensitive_content_elements\u0060 | \u2713 | \u2014 | \u2014 | \u2014 |\n| \u0060num_sensitive_form_elements\u0060 | \u2713 | \u2014 | \u2014 | \u2014 |\n| \u0060os\u0060 | \u2713 | \u2713 | \u2014 | \u2713 |\n| \u0060page_url\u0060 | \u2713 | \u2014 | \u2014 | \u2014 |\n| \u0060parent_page_url\u0060 | \u2713 | \u2014 | \u2014 | \u2014 |\n| \u0060seconds_on_page\u0060 | \u2713 | \u2713 | \u2713 | \u2713 |\n| \u0060session_replay_status\u0060 | \u2713 | \u2713 | \u2713 | \u2713 |\n",
+        "example": {
+          "properties": {
+            "age_seconds": 76287,
+            "approx_ip_geo": {
+              "city": "Dallas",
+              "country_code": "US",
+              "lat": 32.7451,
+              "lon": -96.8038,
+              "postal_code": "75203",
+              "state": "Texas",
+              "time_zone": "America/Chicago"
+            },
+            "bot_detected": false,
+            "browser": {
+              "full": "Chrome 128.0.0.0",
+              "name": "Chrome",
+              "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+              "version": {
+                "full": "128.0.0.0",
+                "major": "128",
+                "minor": "0",
+                "patch": "0"
+              }
+            },
+            "confirmed_owner": "ActiveProspect, Inc.",
+            "created_at": "2024-09-18T17:07:09Z",
+            "domain": "example.com",
+            "expires_at": "2024-12-20T17:07:09Z",
+            "form_input_kpm": 234.92561,
+            "form_input_method": [
+              "typing"
+            ],
+            "form_input_wpm": 47.35596,
+            "ip": "192.168.0.1",
+            "is_framed": false,
+            "is_masked": false,
+            "num_sensitive_content_elements": 0,
+            "num_sensitive_form_elements": 0,
+            "os": {
+              "full": "Mac OS X 10.15.7",
+              "is_mobile": false,
+              "name": "Mac OS X",
+              "version": {
+                "full": "10.15.7",
+                "major": "10",
+                "minor": "15",
+                "patch": "7"
+              }
+            },
+            "page_url": "https://www.example.com/contact.html",
+            "parent_page_url": null,
+            "seconds_on_page": 1129,
+            "session_replay_status": "available"
+          },
+          "scans": {
+            "forbidden": [
+              "free"
+            ],
+            "required": [
+              "offer"
+            ],
+            "result": {
+              "forbidden": {
+                "found": [],
+                "not_found": [
+                  "free"
+                ]
+              },
+              "required": {
+                "found": [],
+                "not_found": [
+                  "offer"
+                ]
+              },
+              "success": false
+            }
+          }
+        },
+        "x-tags": [
+          "Insights"
+        ]
+      },
+      "MatchLeadEmailParameters": {
+        "title": "MatchLeadEmailParameters",
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email of the consumer you believe was recorded in the certificate. Optionally you can hash the value using a SHA1 hash function in place of providing the unhashed value"
+          }
+        },
+        "description": "Match certificate to the lead based on the lead \u0060email\u0060 address",
+        "example": {
+          "email": "janedoe@gmail.com"
+        }
+      },
+      "MatchLeadParameters": {
+        "title": "MatchLeadParameters",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/MatchLeadEmailParameters"
+          },
+          {
+            "$ref": "#/components/schemas/MatchLeadPhoneParameters"
+          },
+          {
+            "$ref": "#/components/schemas/MatchLeadPhoneEmailParameters"
+          }
+        ],
+        "x-tags": [
+          "Match Lead"
+        ]
+      },
+      "MatchLeadPhoneEmailParameters": {
+        "title": "MatchLeadPhoneEmailParameters",
+        "required": [
+          "email",
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email of the consumer you believe was recorded in the certificate. Optionally you can hash the value using a SHA1 hash function in place of providing the unhashed value"
+          },
+          "phone": {
+            "type": "string",
+            "description": "The phone number of the consumer you believe was recorded in the certificate. Optionally you can hash the value using a SHA1 hash function in place of providing the unhashed value."
+          }
+        },
+        "description": "Match certificate to the lead based on the lead \u0060phone\u0060 number and/or \u0060email\u0060 address",
+        "example": {
+          "email": "janedoe@gmail.com",
+          "phone": "5125551212"
+        }
+      },
+      "MatchLeadPhoneParameters": {
+        "title": "MatchLeadPhoneParameters",
+        "required": [
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "description": "The phone number of the consumer you believe was recorded in the certificate. Optionally you can hash the value using a SHA1 hash function in place of providing the unhashed value."
+          }
+        },
+        "description": "Match certificate to the lead based on the lead \u0060phone\u0060 number",
+        "example": {
+          "phone": "5125551212"
+        }
+      },
+      "MatchLeadRequest": {
+        "title": "MatchLeadRequest",
+        "type": "object",
+        "properties": {
+          "match_lead": {
+            "$ref": "#/components/schemas/MatchLeadParameters"
+          }
+        }
+      },
+      "MatchLeadResponse": {
+        "title": "MatchLeadResponse",
+        "type": "object",
+        "properties": {
+          "match_lead": {
+            "$ref": "#/components/schemas/MatchLeadResult"
+          }
+        }
+      },
+      "MatchLeadResult": {
+        "title": "MatchLeadResult",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email or hashed value provided in the request, believed to be that of the consumer recorded in the certificate."
+          },
+          "phone": {
+            "type": "string",
+            "description": "The phone number or hashed value provided in the request, believed to be that of the consumer recorded in the certificate."
+          },
+          "result": {
+            "$ref": "#/components/schemas/MatchLeadResultResult"
+          }
+        },
+        "description": "The result of the \u0060match_lead\u0060 operation. The \u0060email\u0060 and \u0060phone\u0060 parameters are echoed and the \u0060result\u0060 property reports the outcome of the operation. More information is [available in our KB](https://support.activeprospect.com/hc/en-us/articles/44098172948884-TrustedForm-Lead-Matching).\n\nIf the operation result is not a \u0060success\u0060, TrustedForm was unable to confirm that the consumer information collected on the cert matches the lead it came with. This is a strong signal that the lead should not be contacted.\n\nThe result of the \u0060match_lead\u0060 operation does not impact the behavior of the \u0060retain\u0060 operation.\n",
+        "example": {
+          "email": "janedoe@gmail.com",
+          "phone": "51125551212",
+          "result": {
+            "email_match": true,
+            "phone_match": true,
+            "success": true
+          }
+        },
+        "x-tags": [
+          "Match Lead"
+        ]
+      },
+      "MethodNotAllowed": {
+        "title": "MethodNotAllowed",
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "outcome": "error",
+          "reason": "Certificate is not claimable"
+        }
+      },
+      "NotFound": {
+        "title": "NotFound",
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "outcome": "error",
+          "reason": "TrustedForm certificate has expired or could not be found"
+        }
+      },
+      "Outcome": {
+        "title": "Outcome",
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "$ref": "#/components/schemas/OutcomeOutcome"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Explanation for a \u0060failure\u0060 or \u0060error\u0060, otherwise \u0060null\u0060",
+            "nullable": true,
+            "example": "null"
+          }
+        }
+      },
+      "PaymentRequired": {
+        "title": "PaymentRequired",
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "outcome": "error",
+          "reason": "Account is inactive"
+        }
+      },
+      "RetainParameters": {
+        "title": "RetainParameters",
+        "type": "object",
+        "properties": {
+          "campaign_id": {
+            "type": "string",
+            "description": "An optional identifier for the campaign associated with the lead. Use this to track which campaign generated the lead without relying on the vendor field. TrustedForm will record this value on the certificate stored in your account and include it in reporting.\n",
+            "example": "summer_promo_2024"
+          },
+          "reference": {
+            "type": "string",
+            "description": "Any text that may help you identify the lead associated with the certificate such as a unique lead identifier or URL pointing to the lead in another system. This value will be displayed in your copy of the certificate for your future reference.\n",
+            "example": "1128238382829"
+          },
+          "vendor": {
+            "type": "string",
+            "description": "When retaining a certificate, you can optionally pass the vendor name. This is intended for tracking the name of the company that provided the lead associated with the certificate. TrustedForm will record this value on the certificate stored in your account. Other accounts cannot see this value. When you use TrustedForm reporting, you can easily filter or group by vendor.\n",
+            "example": "Acme Co."
+          }
+        },
+        "description": "Though both \u0060retain\u0060 parameters are optional, we strongly recommend using them. Doing so will record additional metadata on your stored certificate which is often of use down the road.\n",
+        "x-tags": [
+          "Retain"
+        ]
+      },
+      "RetainRequest": {
+        "title": "RetainRequest",
+        "type": "object",
+        "properties": {
+          "retain": {
+            "$ref": "#/components/schemas/RetainParameters"
+          }
+        }
+      },
+      "RetainResponse": {
+        "title": "RetainResponse",
+        "type": "object",
+        "properties": {
+          "retain": {
+            "$ref": "#/components/schemas/RetainResult"
+          }
+        }
+      },
+      "RetainResult": {
+        "title": "RetainResult",
+        "type": "object",
+        "properties": {
+          "campaign_id": {
+            "type": "string",
+            "description": "The campaign identifier submitted with the retain request, if provided.\n",
+            "example": "summer_promo_2024"
+          },
+          "reference": {
+            "type": "string",
+            "description": "Any text that may help you identify the lead associated with the certificate such as a unique lead identifier or URL pointing to the lead in another system. This value will be displayed in your copy of the certificate for your future reference.\n",
+            "example": "1128238382829"
+          },
+          "results": {
+            "$ref": "#/components/schemas/RetainResultResults"
+          },
+          "vendor": {
+            "type": "string",
+            "description": "When retaining a certificate, you can optionally pass the vendor name. This is intended for tracking the name of the company that provided the lead associated with the certificate. TrustedForm will record this value on the certificate stored in your account. Other accounts cannot see this value. When you use TrustedForm reporting, you can easily filter or group by vendor.\n",
+            "example": "Acme Co."
+          }
+        },
+        "x-tags": [
+          "Retain"
+        ]
+      },
+      "ScansResult": {
+        "title": "ScansResult",
+        "type": "object",
+        "properties": {
+          "delimiter": {
+            "type": "string",
+            "description": "The parameter provided in the request that was used as the delimiter to identify wildcards during the page scan process."
+          },
+          "forbidden": {
+            "$ref": "#/components/schemas/ScansResultForbidden"
+          },
+          "required": {
+            "$ref": "#/components/schemas/ScansResultRequired"
+          },
+          "result": {
+            "$ref": "#/components/schemas/ScansResultResult"
+          }
+        },
+        "description": "An object containing the properties that are part of the page scan process."
+      },
+      "Unauthorized": {
+        "title": "Unauthorized",
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "outcome": "error",
+          "reason": "Unauthorized"
+        }
+      },
+      "UnprocessableEntity": {
+        "title": "UnprocessableEntity",
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "outcome": "error",
+          "reason": "Certificate has been claimed too many times"
+        }
+      },
+      "VerifyParameters": {
+        "title": "VerifyParameters",
+        "type": "object",
+        "properties": {
+          "advertiser_name": {
+            "type": "string",
+            "description": "The name of the legal entity for an advertiser, used to determine if they were given consent in a one-to-one manner. Normalized to be case-insensitive, ignore extra spaces, and omit non-alphanumeric characters (e.g., \u201CAcme Inc.\u201D and \u201Cacme inc\u201D are the same). This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
+            "example": "Acme Inc."
+          },
+          "consent_language_acceptance_enabled": {
+            "type": "boolean",
+            "description": "Whether to check consent language for approval status and factor it into a verify request\u0027s outcome. If included the true or false sent in consent_language_acceptance_enabled field overrides the saved account setting for this request only. If omitted, the saved setting applies.\n",
+            "example": true
+          },
+          "min_contrast_ratio_required": {
+            "type": "number",
+            "description": "The number indicating the minimum contrast ratio required between the consent language text and background. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
+            "example": 7
+          },
+          "min_font_size_px_required": {
+            "type": "number",
+            "description": "The number indicating the minimum font size required for the consent language. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
+            "example": 16
+          },
+          "opt_in_types_allowed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VerifyParametersOptInTypesAllowedItem"
+            },
+            "description": "An array of strings that lists the opt-in types that are allowed. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided through either method. The array can include one or more of the following values:\n\n- \u0060manual\u0060: The consumer actively checked a box to provide consent.\n- \u0060pre-selected\u0060: An opt-in field was selected by default, without explicit action from the consumer.\n- \u0060non-interactive\u0060: In the absence of an opt-in field, the consumer gave consent by submitting the form.\n\nThis field is used to define which opt-in types are considered valid.\n"
+          }
+        },
+        "description": "The \u0060advertiser_name\u0060 parameter is optional but is required to populate the \u0060one_to_one\u0060 property.\n\nThe \u0060advertiser_name\u0060 parameter only applies to the One to One Consent value (returned as \u0060one_to_one\u0060). It has no effect on\nany other values returned by the Verify call.\n\nThe \u0060consent_language_acceptance_enabled\u0060, \u0060min_font_size_px_required\u0060, \u0060min_contrast_ratio_required\u0060, and \u0060opt_in_types_allowed\u0060 parameters are optional.\n",
+        "example": {
+          "advertiser_name": "Acme Inc.",
+          "min_contrast_ratio_required": 7,
+          "min_font_size_px_required": 16,
+          "opt_in_types_allowed": [
+            "manual",
+            "pre-selected",
+            "non-interactive"
+          ]
+        },
+        "x-tags": [
+          "Verify"
+        ]
+      },
+      "VerifyRequest": {
+        "title": "VerifyRequest",
+        "type": "object",
+        "properties": {
+          "verify": {
+            "$ref": "#/components/schemas/VerifyParameters"
+          }
+        }
+      },
+      "VerifyResponse": {
+        "title": "VerifyResponse",
+        "type": "object",
+        "properties": {
+          "verify": {
+            "$ref": "#/components/schemas/VerifyResult"
+          }
+        }
+      },
+      "VerifyResult": {
+        "title": "VerifyResult",
+        "type": "object",
+        "properties": {
+          "advertiser_name": {
+            "type": "string",
+            "description": "The legal name of the advertiser used to perform the 1:1 consent language check. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n"
+          },
+          "consent_language_acceptance_enabled": {
+            "type": "boolean",
+            "description": "A boolean indicating whether the consent language acceptance check was applied to this request. This value can be passed in the request or set via the consent language settings, and reflects whichever took effect. When \u0060false\u0060, \u0060result.language_approved\u0060 is returned as \u0060null\u0060.\n"
+          },
+          "languages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VerifyResultLanguagesItem"
+            },
+            "description": "A list of the consent languages detected within the certificate"
+          },
+          "min_contrast_ratio_required": {
+            "type": "number",
+            "description": "The number indicating the minimum contrast ratio required between the consent language text and background. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n"
+          },
+          "min_font_size_px_required": {
+            "type": "number",
+            "description": "The number indicating the minimum font size required for the consent language. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n"
+          },
+          "opt_in_types_allowed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VerifyResultOptInTypesAllowedItem"
+            },
+            "description": "An array of strings that lists the opt-in types that are allowed. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided through either method.\n"
+          },
+          "result": {
+            "$ref": "#/components/schemas/VerifyResultResult"
+          }
+        },
+        "example": {
+          "advertiser_name": "Acme Inc.",
+          "consent_language_acceptance_enabled": true,
+          "languages": [
+            {
+              "text": "By clicking on the \u0027Get Rates\u0027 button below, I consent to be contacted"
+            }
+          ],
+          "min_contrast_ratio_required": 7,
+          "min_font_size_px_required": 16,
+          "opt_in_types_allowed": [
+            "manual",
+            "pre-selected",
+            "non-interactive"
+          ],
+          "result": {
+            "form_submitted": true,
+            "language_approved": true,
+            "min_contrast_ratio_satisfied": true,
+            "min_font_size_px_satisfied": true,
+            "one_to_one": true,
+            "opt_in_types_satisfied": true,
+            "success": true
+          }
+        },
+        "x-tags": [
+          "Verify"
+        ]
+      },
+      "InsightsParametersScansForbidden": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Use this parameter to perform a scan of the page for text that must not be present. TrustedForm will then perform a case and whitespace insensitive search for the string.\n"
+      },
+      "InsightsParametersScansRequired": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Use this parameter to perform a scan of the page for required text. TrustedForm will then perform a case and whitespace insensitive search for the string."
+      },
+      "ScansResultForbidden": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "The parameter provided in the request that was searched for during the page scan process to verify that it was not included in the recorded content."
+      },
+      "ScansResultRequired": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "The parameter provided in the request that was searched for during the page scan process to verify that it was included in the recorded content."
+      },
+      "ScansResultResultForbiddenFound": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "A list of forbidden scan terms that were found in the recorded content."
+      },
+      "ScansResultResultForbiddenNotFound": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "A list of forbidden scan terms that were not found in the recorded content."
+      },
+      "ScansResultResultRequiredFound": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "A list of required scan terms that were found in the recorded content."
+      },
+      "ScansResultResultRequiredNotFound": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "A list of required scan terms that were not found in the recorded content."
+      },
+      "BadRequestErrors": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "InsightsParametersScans": {
+        "type": "object",
+        "properties": {
+          "delimiter": {
+            "type": "string",
+            "description": "Use this parameter to designate a delimiter to use when wrapping wildcards. Your choice of delimiter must be homogeneous (i.e. the beginning and end are the same character(s)), such as |, ==, or |||.\n"
+          },
+          "forbidden": {
+            "$ref": "#/components/schemas/InsightsParametersScansForbidden"
+          },
+          "required": {
+            "$ref": "#/components/schemas/InsightsParametersScansRequired"
+          }
+        },
+        "description": "An object containing the terms to use to perform a page scan which checks for their presence in the content captured by the certificate."
+      },
+      "InsightsResultProperties": {
+        "type": "object",
+        "properties": {
+          "age_seconds": {
+            "type": "integer",
+            "description": "Number of seconds since the last user interaction with the certificate.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
+            "nullable": true
+          },
+          "approx_ip_geo": {
+            "$ref": "#/components/schemas/InsightsResultPropertiesApproxIpGeo"
+          },
+          "bot_detected": {
+            "type": "boolean",
+            "description": "A determination of whether the events documented were likely produced by a non-human entity based on ActiveProspect\u2019s proprietary algorithms.\n\nSupported: Web.",
+            "nullable": true
+          },
+          "browser": {
+            "$ref": "#/components/schemas/InsightsResultPropertiesBrowser"
+          },
+          "confirmed_owner": {
+            "type": "string",
+            "description": "This field indicates the verified owner of the TrustedForm certificate.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022No Verified ActiveProspect Account Identified\u0022\u0060\u0060 \u2014 no account has been confirmed as the owner of this certificate.\n- \u0060\u0060\u0022ActiveProspect Verified Owner\u0022\u0060\u0060 \u2014 the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.\n- \u0060\u0060\u0022\u003Caccount name\u003E\u0022\u0060\u0060 \u2014 the name of the verified account that owns the certificate and has granted permission to confirm ownership.\n\nTo manage permissions, visit the [Connections](https://account.activeprospect.com/connections/invitations/new) page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The UTC ISO8601 formatted date and time when TrustedForm Certify was loaded. For Social certificates, the date and time when the consumer\u0027s interaction with the social platform\u0027s form was recorded.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
+            "format": "datetime",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "description": "The domain displayed to the consumer during the page visit. For Social certificates, the domain of the social platform that hosted the form shown to the consumer.\n\nSupported: Web, Social.",
+            "nullable": true
+          },
+          "expires_at": {
+            "type": "string",
+            "description": "The UTC ISO8601 formatted date and time when the certificate will expire.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
+            "format": "datetime",
+            "nullable": true
+          },
+          "form_input_kpm": {
+            "type": "number",
+            "description": "The average number of keystrokes per minute based on the consumer\u0027s rate of form input.\n\nSupported: Web.",
+            "nullable": true
+          },
+          "form_input_method": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InsightsResultPropertiesFormInputMethodItem"
+            },
+            "description": "The detected input method(s) the consumer used to fill out the form.\n\nSupported: Web.",
+            "nullable": true
+          },
+          "form_input_wpm": {
+            "type": "number",
+            "description": "The approximate number of words per minute calculated by using the form_input_kpm and assuming five characters represent a word.\n\nSupported: Web.",
+            "nullable": true
+          },
+          "ip": {
+            "type": "string",
+            "description": "The consumer\u0027s public IP address.\n\nSupported: Web, Mobile, Social.",
+            "nullable": true
+          },
+          "is_framed": {
+            "type": "boolean",
+            "description": "A boolean indicating that the form was displayed within an iframe.\n\nSupported: Web.",
+            "nullable": true
+          },
+          "is_masked": {
+            "type": "boolean",
+            "description": "A boolean indicating if the certificate is masked and does not show source information nor a session replay.\n\nSupported: Web, Mobile.",
+            "nullable": true
+          },
+          "num_sensitive_content_elements": {
+            "type": "number",
+            "description": "Count of how many content elements (e.g. img, div) are marked sensitive and hidden from the session replay.\n\nSupported: Web.",
+            "nullable": true
+          },
+          "num_sensitive_form_elements": {
+            "type": "number",
+            "description": "Count of how many form elements (e.g. input, textarea) are marked sensitive and hidden from the session replay.\n\nSupported: Web.",
+            "nullable": true
+          },
+          "os": {
+            "$ref": "#/components/schemas/InsightsResultPropertiesOs"
+          },
+          "page_url": {
+            "type": "string",
+            "description": "The URL of the page hosting TrustedForm Certify.\n\nSupported: Web.",
+            "format": "url",
+            "nullable": true
+          },
+          "parent_page_url": {
+            "type": "string",
+            "description": "The parent URL of the page hosting TrustedForm Certify, if framed.\n\nSupported: Web.",
+            "format": "url",
+            "nullable": true
+          },
+          "seconds_on_page": {
+            "type": "number",
+            "description": "The time in seconds between when TrustedForm Certify was loaded and when the most recent cert event was received. For Social certificates, the time in seconds between when the social platform\u0027s form was shown to the consumer and when they submitted it. Facebook Lead Ads certificates have no page session, so the value is always 0.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
+            "nullable": true
+          },
+          "session_replay_status": {
+            "$ref": "#/components/schemas/InsightsResultPropertiesSessionReplayStatus"
+          }
+        },
+        "description": "The data points requested, if available."
+      },
+      "MatchLeadResultResult": {
+        "type": "object",
+        "properties": {
+          "email_match": {
+            "type": "boolean",
+            "description": "A \u0060boolean\u0060 indicating if the specified \u0060email\u0060 was found on the certificate. A \u0060null\u0060 value indicates that no emails were provided.\n",
+            "example": true
+          },
+          "phone_match": {
+            "type": "boolean",
+            "description": "A \u0060boolean\u0060 indicating if the specified \u0060phone\u0060 was found on the certificate. A \u0060null\u0060 value indicates that a phone number was not provided.\n",
+            "example": false
+          },
+          "success": {
+            "type": "boolean",
+            "description": "A \u0060boolean\u0060 indicating if any matches were found during the lead matching operation. A \u0060null\u0060 value indicates that lead matching was not performed.\n",
+            "example": true
+          }
+        }
+      },
+      "RetainResultResults": {
+        "type": "object",
+        "properties": {
+          "expires_at": {
+            "type": "string",
+            "description": "The UTC ISO8601 formatted date and time when this certificate will no longer be available for API requests.",
+            "format": "datetime",
+            "example": "2023-07-18T12:03:52Z"
+          },
+          "masked_cert_url": {
+            "type": "string",
+            "description": "A certificate URL that masks the lead source URL and snapshot",
+            "nullable": true
+          },
+          "previously_retained": {
+            "type": "boolean",
+            "description": "A boolean indicating whether your account had already retained this certificate.",
+            "example": "false"
+          },
+          "session_replay_status": {
+            "$ref": "#/components/schemas/RetainResultResultsSessionReplayStatus"
+          }
+        }
+      },
+      "ScansResultResult": {
+        "type": "object",
+        "properties": {
+          "forbidden": {
+            "$ref": "#/components/schemas/ScansResultResultForbidden"
+          },
+          "required": {
+            "$ref": "#/components/schemas/ScansResultResultRequired"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "A boolean indicating if all required text was found and none of the forbidden text was found.\u003Cbr\u003E Null if page scan parameters are not provided.",
+            "nullable": true
+          }
+        }
+      },
+      "VerifyResultLanguagesItem": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The text of a consent language found within the certificate",
+            "example": "By clicking on the \u0027Submit\u0027 button below, I consent to be contacted"
+          }
+        }
+      },
+      "VerifyResultResult": {
+        "type": "object",
+        "properties": {
+          "form_submitted": {
+            "type": "boolean",
+            "description": "A boolean indicating whether the form was successfully submitted by the consumer. true means a form submission was detected, while false indicates that the form was abandoned before submission. This field will only influence the one_to_one check result, not the overall Verify outcome."
+          },
+          "language_approved": {
+            "type": "boolean",
+            "description": "A boolean indicating if any of the consent languages found have been approved in your account\u2019s consent language manager. A \u0060null\u0060 value is returned when the consent language acceptance check is disabled by the account setting or a request override.",
+            "nullable": true
+          },
+          "min_contrast_ratio_satisfied": {
+            "type": "boolean",
+            "description": "A boolean indicating whether the contrast ratio between the consent language text and background meets or exceeds the required minimum contrast ratio.  true means the contrast requirement was satisfied, while false means it was insufficient. A null value is returned when the min_contrast_ratio_required is missing, and the check could not be performed."
+          },
+          "min_font_size_px_satisfied": {
+            "type": "boolean",
+            "description": "A boolean indicating whether the consent language meets or exceeds the required minimum font size. true means the font size requirement was satisfied, while false indicates it was not. A null value is returned when the min_font_size_px_required is missing, and the check could not be performed."
+          },
+          "one_to_one": {
+            "type": "boolean",
+            "description": "A boolean indicating if the cert structure satisfied the requirements for 1:1 consent. You must pass the \u0060advertiser_name\u0060 for the check to be performed. A \u0060null\u0060 value is returned when consent tags were not used, or when the \u0060advertiser_name\u0060 is missing, and the consent check could not be performed.",
+            "nullable": true
+          },
+          "opt_in_types_satisfied": {
+            "type": "boolean",
+            "description": "A boolean indicating whether all the opt-in types on the form match one or more of the allowed opt-in types specified in the opt_in_types_allowed parameter. true means all opt-in types on the form meet the specified criteria.  false means at least one opt-in type on the form does not match any of the allowed types. A null value is returned when the opt_in_types_allowed is missing, and the check could not be performed.\n"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "A boolean indicating whether all Verify checks succeeded."
+          }
+        },
+        "description": "An object containing properties that detail the result of the verify operation."
+      },
+      "InsightsResultPropertiesApproxIpGeo": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "City name based on consumer\u0027s public IP address.",
+            "nullable": true
+          },
+          "country_code": {
+            "type": "string",
+            "description": "Country code based on consumer\u0027s public IP address",
+            "nullable": true
+          },
+          "lat": {
+            "type": "number",
+            "description": "Latitude based on consumer\u0027s public IP address.",
+            "nullable": true
+          },
+          "lon": {
+            "type": "number",
+            "description": "Longitude based on consumer\u0027s public IP address.",
+            "nullable": true
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "Mailing address postal code based on consumer\u0027s public IP address.",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "description": "State/Province or Political Subdivision abbreviation based on consumer\u0027s public IP address.",
+            "nullable": true
+          },
+          "time_zone": {
+            "type": "string",
+            "description": "Timezone name based on consumer\u0027s public IP address.",
+            "nullable": true
+          }
+        },
+        "description": "An object containing properties that provide information about the consumer\u2019s location at the time the certificate was created based on their IP address.\n\nSupported: Web, Mobile, Social.",
+        "nullable": true
+      },
+      "InsightsResultPropertiesBrowser": {
+        "type": "object",
+        "properties": {
+          "full": {
+            "type": "string",
+            "description": "A human-friendly version of the browser parsed from the user-agent.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "The browser\u0027s name.",
+            "nullable": true
+          },
+          "user_agent": {
+            "type": "string",
+            "description": "The consumer\u0027s browser user-agent.",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/InsightsResultPropertiesBrowserVersion"
+          }
+        },
+        "description": "An object containing properties that provide information about the consumer\u2019s browser.\n\nSupported: Web.",
+        "nullable": true
+      },
+      "InsightsResultPropertiesOs": {
+        "type": "object",
+        "properties": {
+          "full": {
+            "type": "string",
+            "description": "A human-friendly version of the operating system information parsed from the user-agent.",
+            "nullable": true
+          },
+          "is_mobile": {
+            "type": "boolean",
+            "description": "A boolean indicating that the form was filled out on a mobile device or tablet, based on the user-agent."
+          },
+          "name": {
+            "type": "string",
+            "description": "The operating system\u0027s name.",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/InsightsResultPropertiesOsVersion"
+          }
+        },
+        "description": "An object containing properties that provide information about the consumer\u0027s operating system. For Social certificates, the information is as reported by the social platform.\n\nSupported: Web, Mobile, Social.",
+        "nullable": true
+      },
+      "ScansResultResultForbidden": {
+        "type": "object",
+        "properties": {
+          "found": {
+            "$ref": "#/components/schemas/ScansResultResultForbiddenFound"
+          },
+          "not_found": {
+            "$ref": "#/components/schemas/ScansResultResultForbiddenNotFound"
+          }
+        },
+        "description": "An object containing the forbidden scans that were found and not found."
+      },
+      "ScansResultResultRequired": {
+        "type": "object",
+        "properties": {
+          "found": {
+            "$ref": "#/components/schemas/ScansResultResultRequiredFound"
+          },
+          "not_found": {
+            "$ref": "#/components/schemas/ScansResultResultRequiredNotFound"
+          }
+        },
+        "description": "An object containing the required scans that were found and not found."
+      },
+      "InsightsResultPropertiesBrowserVersion": {
+        "type": "object",
+        "properties": {
+          "full": {
+            "type": "string",
+            "description": "A string containing the full version.",
+            "nullable": true
+          },
+          "major": {
+            "type": "string",
+            "description": "A string containing the major version.",
+            "nullable": true
+          },
+          "minor": {
+            "type": "string",
+            "description": "A string containing the minor version.",
+            "nullable": true
+          },
+          "patch": {
+            "type": "string",
+            "description": "A string containing the patch version.",
+            "nullable": true
+          }
+        },
+        "description": "An object containing properties that provide information about the browser\u0027s version number."
+      },
+      "InsightsResultPropertiesOsVersion": {
+        "type": "object",
+        "properties": {
+          "full": {
+            "type": "string",
+            "description": "A string containing the version of the consumer\u0027s operating system.",
+            "nullable": true
+          },
+          "major": {
+            "type": "string",
+            "description": "A string containing the major version of the consumer\u0027s operating system.",
+            "nullable": true
+          },
+          "minor": {
+            "type": "string",
+            "description": "A string containing the minor version of the consumer\u0027s operating system.",
+            "nullable": true
+          },
+          "patch": {
+            "type": "string",
+            "description": "A string containing the patch version of the consumer\u0027s operating system.",
+            "nullable": true
+          }
+        },
+        "description": "An object containing properties that provide information about the version of the consumer\u0027s operating system."
+      },
+      "ClaimerWebClaimControllerRunOperationsRequest": {
+        "type": "object",
+        "properties": {
+          "match_lead": {
+            "$ref": "#/components/schemas/MatchLeadParameters"
+          },
+          "retain": {
+            "$ref": "#/components/schemas/RetainParameters"
+          },
+          "insights": {
+            "$ref": "#/components/schemas/InsightsParameters"
+          },
+          "verify": {
+            "$ref": "#/components/schemas/VerifyParameters"
+          }
+        }
+      },
+      "ClaimerWebClaimControllerRunOperations200Response": {
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "$ref": "#/components/schemas/OutcomeOutcome"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Explanation for a \u0060failure\u0060 or \u0060error\u0060, otherwise \u0060null\u0060",
+            "nullable": true,
+            "example": "null"
+          },
+          "match_lead": {
+            "$ref": "#/components/schemas/MatchLeadResult"
+          },
+          "retain": {
+            "$ref": "#/components/schemas/RetainResult"
+          },
+          "insights": {
+            "$ref": "#/components/schemas/InsightsResult"
+          },
+          "verify": {
+            "$ref": "#/components/schemas/VerifyResult"
+          }
+        }
+      },
+      "ExamplePayload": {
+        "type": "object",
+        "description": "Placeholder schema for path example refs"
+      },
+      "InsightsParametersPropertiesItem": {
+        "enum": [
+          "age_seconds",
+          "approx_ip_geo",
+          "bot_detected",
+          "browser",
+          "confirmed_owner",
+          "created_at",
+          "domain",
+          "expires_at",
+          "form_input_kpm",
+          "form_input_method",
+          "form_input_wpm",
+          "ip",
+          "is_framed",
+          "is_masked",
+          "num_sensitive_content_elements",
+          "num_sensitive_form_elements",
+          "os",
+          "page_url",
+          "parent_page_url",
+          "seconds_on_page",
+          "session_replay_status"
+        ],
+        "type": "string",
+        "x-enumDescriptions": {
+          "age_seconds": "The number of seconds elapsed since the last recorded session replay event",
+          "approx_ip_geo": "The consumer\u0027s approximate geographical location based on \u0060ip\u0060",
+          "bot_detected": "A determination of whether the events documented were likely produced by a non-human entity based on ActiveProspect\u0027s proprietary algorithms.",
+          "browser": "An object containing properties that provide information about the consumer\u0027s browser.",
+          "confirmed_owner": "This field indicates the verified owner of the TrustedForm certificate.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022No Verified ActiveProspect Account Identified\u0022\u0060\u0060 \u2014 no account has been confirmed as the owner of this certificate.\n- \u0060\u0060\u0022ActiveProspect Verified Owner\u0022\u0060\u0060 \u2014 the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.\n- \u0060\u0060\u0022\u003Caccount name\u003E\u0022\u0060\u0060 \u2014 the name of the verified account that owns the certificate and has granted permission to confirm ownership.\n\nTo manage permissions, visit the [Connections](https://account.activeprospect.com/connections/invitations/new) page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.\n",
+          "created_at": "The UTC ISO8601 formatted date and time when TrustedForm Certify was loaded.",
+          "domain": "The domain shown to the consumer during the lead event",
+          "expires_at": "The UTC ISO8601 formatted date and time when the certificate will expire.",
+          "form_input_kpm": "The average number of keystrokes per minute based on the consumer\u0027s rate of form input.",
+          "form_input_method": "Methods used by the consumer to fill web form fields",
+          "form_input_wpm": "The approximate number of words per minute calculated by using the form_input_kpm and assuming five characters represent a word.",
+          "ip": "The consumer\u0027s public IP address",
+          "is_framed": "A boolean indicating that the form was displayed within an iframe.",
+          "is_masked": "A boolean indicating if the certificate is masked and does not show source information nor a session replay.",
+          "num_sensitive_content_elements": "Count of how many content elements (e.g. img, div) are marked sensitive and hidden from the session replay.",
+          "num_sensitive_form_elements": "Count of how many form elements (e.g. input, textarea) are marked sensitive and hidden from the session replay.",
+          "os": "An object containing properties that provide information about the consumer\u0027s operating system.",
+          "page_url": "The URL of the page hosting TrustedForm Certify.",
+          "parent_page_url": "The parent URL of the page hosting TrustedForm Certify, if framed.",
+          "seconds_on_page": "The time in seconds between when TrustedForm Certify was loaded and when the most recent cert event was received.",
+          "session_replay_status": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 every page of the certificate has a stored snapshot and at least one recorded event of any type.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n"
+        },
+        "x-ms-enum": {
+          "name": "InsightsParametersPropertiesItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "age_seconds",
+              "name": "AgeSeconds"
+            },
+            {
+              "value": "approx_ip_geo",
+              "name": "ApproxIpGeo"
+            },
+            {
+              "value": "bot_detected",
+              "name": "BotDetected"
+            },
+            {
+              "value": "browser",
+              "name": "Browser"
+            },
+            {
+              "value": "confirmed_owner",
+              "name": "ConfirmedOwner"
+            },
+            {
+              "value": "created_at",
+              "name": "CreatedAt"
+            },
+            {
+              "value": "domain",
+              "name": "Domain"
+            },
+            {
+              "value": "expires_at",
+              "name": "ExpiresAt"
+            },
+            {
+              "value": "form_input_kpm",
+              "name": "FormInputKpm"
+            },
+            {
+              "value": "form_input_method",
+              "name": "FormInputMethod"
+            },
+            {
+              "value": "form_input_wpm",
+              "name": "FormInputWpm"
+            },
+            {
+              "value": "ip",
+              "name": "Ip"
+            },
+            {
+              "value": "is_framed",
+              "name": "IsFramed"
+            },
+            {
+              "value": "is_masked",
+              "name": "IsMasked"
+            },
+            {
+              "value": "num_sensitive_content_elements",
+              "name": "NumSensitiveContentElements"
+            },
+            {
+              "value": "num_sensitive_form_elements",
+              "name": "NumSensitiveFormElements"
+            },
+            {
+              "value": "os",
+              "name": "Os"
+            },
+            {
+              "value": "page_url",
+              "name": "PageUrl"
+            },
+            {
+              "value": "parent_page_url",
+              "name": "ParentPageUrl"
+            },
+            {
+              "value": "seconds_on_page",
+              "name": "SecondsOnPage"
+            },
+            {
+              "value": "session_replay_status",
+              "name": "SessionReplayStatus"
+            }
+          ]
+        }
+      },
+      "OutcomeOutcome": {
+        "enum": [
+          "success",
+          "failure",
+          "error"
+        ],
+        "type": "string",
+        "description": "The overall outcome of executed operations. Indicates whether the call succeeded, failed, or resulted in an error. Best practice is to use this property to determine if you should purchase a lead. A \u0060failure\u0060 or \u0060error\u0060 indicate that the lead should not be contacted. The reason for failure or error is revealed in the \u0060reason\u0060 property.\n",
+        "example": "success",
+        "x-enumDescriptions": {
+          "error": "An unexpected error occurred in one or more of the operations",
+          "failure": "One or more operations were unsuccessful",
+          "success": "All operations were successful"
+        },
+        "x-ms-enum": {
+          "name": "OutcomeOutcome",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "failure",
+              "name": "Failure"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "VerifyParametersOptInTypesAllowedItem": {
+        "enum": [
+          "manual",
+          "pre-selected",
+          "non-interactive"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "VerifyParametersOptInTypesAllowedItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "manual",
+              "name": "Manual"
+            },
+            {
+              "value": "pre-selected",
+              "name": "PreSelected"
+            },
+            {
+              "value": "non-interactive",
+              "name": "NonInteractive"
+            }
+          ]
+        }
+      },
+      "VerifyResultOptInTypesAllowedItem": {
+        "enum": [
+          "manual",
+          "pre-selected",
+          "non-interactive"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "VerifyResultOptInTypesAllowedItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "manual",
+              "name": "Manual"
+            },
+            {
+              "value": "pre-selected",
+              "name": "PreSelected"
+            },
+            {
+              "value": "non-interactive",
+              "name": "NonInteractive"
+            }
+          ]
+        }
+      },
+      "InsightsResultPropertiesFormInputMethodItem": {
+        "enum": [
+          "autofill",
+          "paste",
+          "typing",
+          "pre-populated"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "InsightsResultPropertiesFormInputMethodItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "autofill",
+              "name": "Autofill"
+            },
+            {
+              "value": "paste",
+              "name": "Paste"
+            },
+            {
+              "value": "typing",
+              "name": "Typing"
+            },
+            {
+              "value": "pre-populated",
+              "name": "PrePopulated"
+            }
+          ]
+        }
+      },
+      "InsightsResultPropertiesSessionReplayStatus": {
+        "enum": [
+          "available",
+          "unavailable",
+          "masked",
+          "not_applicable",
+          null
+        ],
+        "type": "string",
+        "description": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 every page of the certificate has a stored snapshot and at least one recorded event of any type.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "InsightsResultPropertiesSessionReplayStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "available",
+              "name": "Available"
+            },
+            {
+              "value": "unavailable",
+              "name": "Unavailable"
+            },
+            {
+              "value": "masked",
+              "name": "Masked"
+            },
+            {
+              "value": "not_applicable",
+              "name": "NotApplicable"
+            }
+          ]
+        }
+      },
+      "RetainResultResultsSessionReplayStatus": {
+        "enum": [
+          "available",
+          "unavailable",
+          "masked",
+          "not_applicable",
+          null
+        ],
+        "type": "string",
+        "description": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 every page of the certificate has a stored snapshot and at least one recorded event of any type.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n",
+        "nullable": true,
+        "example": "available",
+        "x-ms-enum": {
+          "name": "RetainResultResultsSessionReplayStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "available",
+              "name": "Available"
+            },
+            {
+              "value": "unavailable",
+              "name": "Unavailable"
+            },
+            {
+              "value": "masked",
+              "name": "Masked"
+            },
+            {
+              "value": "not_applicable",
+              "name": "NotApplicable"
+            }
+          ]
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Bad Request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BadRequest"
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "Unavailable operation requested",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Forbidden"
+            }
+          }
+        }
+      },
+      "MethodNotAllowed": {
+        "description": "Attempted to claim a \u0027sandboxed\u0027 certificate",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MethodNotAllowed"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "TrustedForm certificate has expired or could not be found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/NotFound"
+            }
+          }
+        }
+      },
+      "PaymentRequired": {
+        "description": "Account is inactive or out of funds",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/PaymentRequired"
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Incorrect API key",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Unauthorized"
+            }
+          }
+        }
+      },
+      "UnprocessableEntity": {
+        "description": "Unprocessable Entity",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/UnprocessableEntity"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Basic": {
+        "type": "http",
+        "description": "TrustedForm uses [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) with the username \u0060API\u0060 and your API key as the password.\n\nFor example: \u0060API:1f1b96c9150d8050e858c043d543bb4eadae0e6f\u0060\n",
+        "scheme": "basic"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Certificate URL",
+      "description": "Each Certificate URL acts as the endpoint to a simple RPC API. The HTTP methods listed in this section are used to interact with an individual certificate. Certificate URLs follow a common format, though the format of a certificate ID depends on how the certificate was issued.\n\n\u0060\u0060\u0060\nhttps://cert.trustedform.com/eb9fc4dd9bed9ad451a5648946cf4bf09b5bb947\n\u0060\u0060\u0060\n"
+    },
+    {
+      "name": "Match Lead",
+      "description": "The \u0060match_lead\u0060 operation allows you to check whether the email address and/or phone number of the lead you have against what is recorded on the certificate.\n\nBefore being converted to a hash to be stored email addresses and phone numbers are normalized. Email addresses are simply downcased while phone numbers remove all whitespace, hyphens, brackets and parentheses. This normalization is also applied to the values of lead matching parameters to help legitimate matches be made when the formatting is different.\n\n**Important:** The \u0060match_lead\u0060 operation is required when running the \u0060retain\u0060 operation.\n"
+    },
+    {
+      "name": "Retain",
+      "description": "The \u0060retain\u0060 operation stores a TrustedForm certificate in your account per your account retention setting (defaults to 5 years). This should be performed for all certificates associated with leads you intend to contact so that you have proof of the events that took place.\n\n**Important:** When retaining a certificate, you must also execute the \u0060match_lead\u0060 operation. This ensures that the lead with which you received the certificate matches the lead data collected on the cert.\n\nRequires a Self-Service plan or higher.\n"
+    },
+    {
+      "name": "Insights",
+      "description": "The \u0060insights\u0060 operation retrieves metadata about the lead event that generated a TrustedForm certificate. The properties included in the response can be used to filter and/or route your leads to optimize your business strategies. More information is available in [our knowledge base](https://community.activeprospect.com/posts/4709758-trustedform-insights).\n\n**Important:** Requires a Professional plan or higher. The effective unit cost for an insights call depends on the Insights data points retrieved.\n"
+    },
+    {
+      "name": "Verify",
+      "description": "The verify operation uses data from lead events and the source from which they originated to verify that a consumer gave their express written consent to be contacted as defined by the requirements configured in your account.\n\n**Important**\n- Verify requires a Self-Service plan or higher.\n- For Facebook certificates, consent language is detected only if it is included in the [custom disclaimer section](https://www.facebook.com/business/help/1550411888622740?id=735435806665862).\n"
+    },
+    {
+      "name": "Operations",
+      "description": "The HTTP \u0060POST\u0060 method called on the certificate URL is a RPC API. That API is organized around \u0022operations.\u0022 Each operation can be called with parameters in the JSON request body. The HTTP response body contains the result of each specified operation. The structure of the parameters and response is symmetrical. That is, the parameters are echoed back in the response. The operation response body also contains a \u0060result\u0060 property that returns the outcome of the operation.\n\n**IMPORTANT:** Each operation is contracted separately so you may not be able to use them all. Additionally, each operation is billed separately and incurs a unit cost each time the operation is run.\n\nIf you are using this API in a ping/post lead buying arrangement, you might consider using only the \u0060insights\u0060 operation on ping and the \u0060retain\u0060 operation on post. That way, you can use the insights data points to inform your bid price. If you win the auction for a lead you will then store the certificate on post using the \u0060retain\u0060 operation.\n",
+      "x-traitTag": true
+    },
+    {
+      "name": "Types",
+      "description": "TrustedForm can issue certificates appropriate for several types of lead origination. Each certificate type has a different certificate ID format and supports different Insights data points.\n\n### Web\nWeb certs are generated using our javascript web SDK. [Sign up online](https://account.activeprospect.com/trustedform/script) for a free TrustedForm Certify account to access the web SDK. Web cert IDs look like this:\n\u0060\u0060\u0060\neb9fc4dd9bed9ad451a5648946cf4bf09b5bb947\n\u0060\u0060\u0060\n\nBy default, web certs have a 72-hour (3 day) window during which they are available to API callers. This window is automatically expanded to 90 days if the certificate recorded a form submission event. After this window has elapsed, certificate API calls will return an HTTP 404.\n\n### Mobile App\nMobile app certificates are generated using our mobile SDK for iOS or Android. Contact sales@activeprospect.com for more information. Mobile app certificates look like this:\n\u0060\u0060\u0060\n11NgkzK_mroUbOD1-x66NigDliU1kdvbaCtLGvyja1K80vU1sKh9grlwP78vzKSp4ncwAfJAlNPNVY8f\n\u0060\u0060\u0060\n\nMobile app certificates have a 90 day window during which they are available to API callers. After this window has elapsed, certificate API calls will return an HTTP 404.\n\n### Facebook Lead Ads\nFacebook Lead Ads certificates are supported through LeadConduit. Contact sales@activeprospect.com for more information. Facebook Lead Ads cert IDs look like this:\n\u0060\u0060\u0060\n0.rpM21ddljS9BNNUOm6FZVVqb5C5JMk1cofI4nDGdwy5ezucyxjok9qLyUXMu9diW62Xac8xNMpomBf1B-XDpfbYvaFMr0YC-54TzHcLrni4.OHOMoMFXaX9YW9DoX_xeng.1vnf6DTWU7sJo6XAxlRP_w\n\u0060\u0060\u0060\n\nFacebook Lead Ads certificates have a 90 day window during which they are available to API callers. After this window has elapsed, certificate API calls will return an HTTP 404.\n",
+      "x-traitTag": true
+    },
+    {
+      "name": "Sending on Ping",
+      "description": "Each TrustedForm certificate captures a session replay of what the consumer saw when they filled out the offer form. The full certificate, including the replay, is visible to any account holder that has retained the certificate using the \u0060retain\u0060 operation. In order to protect consumer privacy, the certificate hides form input fields recorded in the session replay by default. In other words, simply retaining a certificate is insufficient for accessing the consumer\u0027s PII because it cannot be seen in the replay.\n\nThis means that a certificate URL can be safely passed to a lead buyer on ping. As long as the phone number and email address are withheld, the buyer cannot access the consumer\u0027s PII. The buyer can only examine the certificate using \u0060insights\u0060 to see if it meets their requirements. When the lead is posted with the certificate URL and the email or phone, the buyer can use \u0060match_lead\u0060 and \u0060retain\u0060 together to both [unlock the PII in the session replay](https://support.activeprospect.com/hc/en-us/articles/44098376178836-Lead-Matching-When-Viewing-A-Certificate) and also store the certificate.\n\n**Important:** If you are pinging a buyer who uses LeadConduit, none of the data you provide on ping can be accessed by the buyer. Because of this, it\u0027s perfectly safe to pass the certificate URL and all PII on ping to LeadConduit. Doing so can dramatically reduce post-rejects since LeadConduit is able to evaluate the entire lead on ping.\n",
+      "x-traitTag": true
+    },
+    {
+      "name": "Masking",
+      "x-traitTag": true
+    },
+    {
+      "name": "Sharing",
+      "x-traitTag": true
+    }
+  ],
+  "externalDocs": {
+    "description": "ActiveProspect Community",
+    "url": "https://developers.activeprospect.com/"
+  },
+  "x-tagGroups": [
+    {
+      "name": "API Endpoint",
+      "tags": [
+        "Certificate URL"
+      ]
+    },
+    {
+      "name": "Operations",
+      "tags": [
+        "Match Lead",
+        "Retain",
+        "Insights",
+        "Verify"
+      ]
+    },
+    {
+      "name": "Certificate",
+      "tags": [
+        "Types",
+        "Sending on Ping"
+      ]
+    }
+  ]
+}

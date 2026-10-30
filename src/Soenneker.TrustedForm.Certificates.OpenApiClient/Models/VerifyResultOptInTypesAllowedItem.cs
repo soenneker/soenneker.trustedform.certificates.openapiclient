@@ -5,7 +5,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum VerifyResult_opt_in_types_allowed
+    public enum VerifyResultOptInTypesAllowedItem
     #pragma warning restore CS1591
     {
         [EnumMember(Value = "manual")]

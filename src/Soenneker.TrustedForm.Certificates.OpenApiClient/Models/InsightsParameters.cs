@@ -18,8 +18,10 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("properties") is { } nullNodeProperties && nullNodeProperties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Properties = null;
-            if (parseNode.GetChildNode("scans") is { } nullNodeScans && nullNodeScans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scans = null;
+            if (parseNode.GetChildNode("properties") is null) { _explicitNullValueProperties = default!; _explicitNullProperties?.Remove("properties"); }
+            else if (parseNode.GetChildNode("properties") is { } nullNodeProperties && nullNodeProperties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Properties = null;
+            if (parseNode.GetChildNode("scans") is null) { _explicitNullValueScans = default!; _explicitNullProperties?.Remove("scans"); }
+            else if (parseNode.GetChildNode("scans") is { } nullNodeScans && nullNodeScans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scans = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,22 +29,22 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <summary>A list of the Insights data points you would like to be returned in the response. Some `properties` are not compatible with all certificate types and will return a null value. Only contracted `properties` are available to query. Your account will only be charged for properties that are returned.See InsightsResult for `form_input_method` values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_properties?>? Properties { get => _explicitNullValueProperties; set { _explicitNullValueProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("properties"); else _explicitNullProperties?.Remove("properties"); } }
-        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_properties?>? _explicitNullValueProperties = default!;
+        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersPropertiesItem?>? Properties { get => _explicitNullValueProperties; set { _explicitNullValueProperties = value; AdditionalData?.Remove("properties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("properties"); else _explicitNullProperties?.Remove("properties"); } }
+        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersPropertiesItem?>? _explicitNullValueProperties = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_properties?> Properties { get => _explicitNullValueProperties; set { _explicitNullValueProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("properties"); else _explicitNullProperties?.Remove("properties"); } }
-        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_properties?> _explicitNullValueProperties = default!;
+        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersPropertiesItem?> Properties { get => _explicitNullValueProperties; set { _explicitNullValueProperties = value; AdditionalData?.Remove("properties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("properties"); else _explicitNullProperties?.Remove("properties"); } }
+        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersPropertiesItem?> _explicitNullValueProperties = default!;
 #endif
         /// <summary>An object containing the terms to use to perform a page scan which checks for their presence in the content captured by the certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans? Scans { get => _explicitNullValueScans; set { _explicitNullValueScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scans"); else _explicitNullProperties?.Remove("scans"); } }
-        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans? _explicitNullValueScans = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersScans? Scans { get => _explicitNullValueScans; set { _explicitNullValueScans = value; AdditionalData?.Remove("scans"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scans"); else _explicitNullProperties?.Remove("scans"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersScans? _explicitNullValueScans = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans Scans { get => _explicitNullValueScans; set { _explicitNullValueScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scans"); else _explicitNullProperties?.Remove("scans"); } }
-        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans _explicitNullValueScans = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersScans Scans { get => _explicitNullValueScans; set { _explicitNullValueScans = value; AdditionalData?.Remove("scans"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scans"); else _explicitNullProperties?.Remove("scans"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersScans _explicitNullValueScans = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters"/> and sets the default values.
@@ -69,8 +71,8 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "properties", n => { Properties = n.GetCollectionOfEnumValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_properties>()?.AsList(); } },
-                { "scans", n => { Scans = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans.CreateFromDiscriminatorValue); } },
+                { "properties", n => { Properties = n.GetCollectionOfEnumValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersPropertiesItem>()?.AsList(); } },
+                { "scans", n => { Scans = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersScans>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersScans.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -80,8 +82,8 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_properties>("properties", Properties);
-            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParameters_scans>("scans", Scans);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersPropertiesItem>("properties", Properties);
+            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsParametersScans>("scans", Scans);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

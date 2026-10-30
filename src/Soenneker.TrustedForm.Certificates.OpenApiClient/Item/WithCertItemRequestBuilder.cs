@@ -12,31 +12,31 @@ using System;
 namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \{cert_id}
+    /// Builds and executes requests for operations under \{certId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithCert_ItemRequestBuilder : BaseRequestBuilder
+    public partial class WithCertItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCertItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithCert_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/{cert_id}", pathParameters)
+        public WithCertItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/{certId}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCertItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithCert_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/{cert_id}", rawUrl)
+        public WithCertItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/{certId}", rawUrl)
         {
         }
         /// <summary>
         /// The TrustedForm Certificate API is able to perform multiple operations based on the parameters sent in the request. Each operation is demonstrated in the request body documentation. The overall outcome of the operations is revealed by the `outcome` property. Best practice is to base your purchase decision on this property.Separate documentation about the parameters and results of each operation is available in the Operations reference and can be used alone or in tandem with another operation. The `match_lead` operation is required when running the `retain` operation.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ClaimerWebClaimControllerRunOperations200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -49,11 +49,11 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
         /// <exception cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.UnprocessableEntity">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse?> PostAsync(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ClaimerWebClaimControllerRunOperations200Response?> PostAsync(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ClaimerWebClaimControllerRunOperationsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse> PostAsync(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ClaimerWebClaimControllerRunOperations200Response> PostAsync(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ClaimerWebClaimControllerRunOperationsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -70,7 +70,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse>(requestInfo, global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ClaimerWebClaimControllerRunOperations200Response>(requestInfo, global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ClaimerWebClaimControllerRunOperations200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The TrustedForm Certificate API is able to perform multiple operations based on the parameters sent in the request. Each operation is demonstrated in the request body documentation. The overall outcome of the operations is revealed by the `outcome` property. Best practice is to base your purchase decision on this property.Separate documentation about the parameters and results of each operation is available in the Operations reference and can be used alone or in tandem with another operation. The `match_lead` operation is required when running the `retain` operation.
@@ -80,15 +80,15 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ClaimerWebClaimControllerRunOperationsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_PostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ClaimerWebClaimControllerRunOperationsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://cert.trustedform.com", "/{certId}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -97,11 +97,11 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCertItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCertItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCert_ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Item.WithCertItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     /// <summary>Whether this certificate has a session replay worth acting on.The value can be one of the following:- ``&quot;available&quot;`` — every page of the certificate has a stored snapshot and at least one recorded event of any type.- ``&quot;unavailable&quot;`` — at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as ``&quot;unavailable&quot;``.- ``&quot;masked&quot;`` — rendering is intentionally withheld because the certificate is masked. Web certificates only.- ``&quot;not_applicable&quot;`` — this certificate type has no session replay. Mobile, Facebook, and Social certificates.- ``null`` — the status could not be calculated. It is never a conclusion about the certificate.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum RetainResult_results_session_replay_status
+    public enum RetainResultResultsSessionReplayStatus
     {
         [EnumMember(Value = "available")]
         #pragma warning disable CS1591
@@ -21,7 +21,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "not_applicable")]
         #pragma warning disable CS1591
-        Not_applicable,
+        NotApplicable,
         #pragma warning restore CS1591
         [EnumMember(Value = "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464")]
         #pragma warning disable CS1591

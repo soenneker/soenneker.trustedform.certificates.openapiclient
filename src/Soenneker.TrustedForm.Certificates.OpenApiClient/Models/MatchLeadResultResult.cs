@@ -9,7 +9,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MatchLeadResult_result : IAdditionalDataHolder, IParsable
+    public partial class MatchLeadResultResult : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
@@ -17,38 +17,41 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("email_match") is { } nullNodeEmailMatch && nullNodeEmailMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailMatch = null;
-            if (parseNode.GetChildNode("phone_match") is { } nullNodePhoneMatch && nullNodePhoneMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneMatch = null;
-            if (parseNode.GetChildNode("success") is { } nullNodeSuccess && nullNodeSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Success = null;
+            if (parseNode.GetChildNode("email_match") is null) { _explicitNullValueEmailMatch = default!; _explicitNullProperties?.Remove("email_match"); }
+            else if (parseNode.GetChildNode("email_match") is { } nullNodeEmailMatch && nullNodeEmailMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailMatch = null;
+            if (parseNode.GetChildNode("phone_match") is null) { _explicitNullValuePhoneMatch = default!; _explicitNullProperties?.Remove("phone_match"); }
+            else if (parseNode.GetChildNode("phone_match") is { } nullNodePhoneMatch && nullNodePhoneMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneMatch = null;
+            if (parseNode.GetChildNode("success") is null) { _explicitNullValueSuccess = default!; _explicitNullProperties?.Remove("success"); }
+            else if (parseNode.GetChildNode("success") is { } nullNodeSuccess && nullNodeSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Success = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A `boolean` indicating if the specified `email` was found on the certificate. A `null` value indicates that no emails were provided.</summary>
-        public bool? EmailMatch { get => _explicitNullValueEmailMatch; set { _explicitNullValueEmailMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_match"); else _explicitNullProperties?.Remove("email_match"); } }
+        public bool? EmailMatch { get => _explicitNullValueEmailMatch; set { _explicitNullValueEmailMatch = value; AdditionalData?.Remove("email_match"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_match"); else _explicitNullProperties?.Remove("email_match"); } }
         private bool? _explicitNullValueEmailMatch = default!;
         /// <summary>A `boolean` indicating if the specified `phone` was found on the certificate. A `null` value indicates that a phone number was not provided.</summary>
-        public bool? PhoneMatch { get => _explicitNullValuePhoneMatch; set { _explicitNullValuePhoneMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_match"); else _explicitNullProperties?.Remove("phone_match"); } }
+        public bool? PhoneMatch { get => _explicitNullValuePhoneMatch; set { _explicitNullValuePhoneMatch = value; AdditionalData?.Remove("phone_match"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_match"); else _explicitNullProperties?.Remove("phone_match"); } }
         private bool? _explicitNullValuePhoneMatch = default!;
         /// <summary>A `boolean` indicating if any matches were found during the lead matching operation. A `null` value indicates that lead matching was not performed.</summary>
-        public bool? Success { get => _explicitNullValueSuccess; set { _explicitNullValueSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success"); else _explicitNullProperties?.Remove("success"); } }
+        public bool? Success { get => _explicitNullValueSuccess; set { _explicitNullValueSuccess = value; AdditionalData?.Remove("success"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success"); else _explicitNullProperties?.Remove("success"); } }
         private bool? _explicitNullValueSuccess = default!;
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult_result"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResultResult"/> and sets the default values.
         /// </summary>
-        public MatchLeadResult_result()
+        public MatchLeadResultResult()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult_result"/></returns>
+        /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResultResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult_result CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResultResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult_result(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResultResult(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model

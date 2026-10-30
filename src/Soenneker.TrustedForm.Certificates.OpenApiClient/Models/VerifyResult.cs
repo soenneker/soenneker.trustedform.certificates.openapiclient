@@ -17,13 +17,20 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("advertiser_name") is { } nullNodeAdvertiserName && nullNodeAdvertiserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvertiserName = null;
-            if (parseNode.GetChildNode("consent_language_acceptance_enabled") is { } nullNodeConsentLanguageAcceptanceEnabled && nullNodeConsentLanguageAcceptanceEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsentLanguageAcceptanceEnabled = null;
-            if (parseNode.GetChildNode("languages") is { } nullNodeLanguages && nullNodeLanguages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Languages = null;
-            if (parseNode.GetChildNode("min_contrast_ratio_required") is { } nullNodeMinContrastRatioRequired && nullNodeMinContrastRatioRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinContrastRatioRequired = null;
-            if (parseNode.GetChildNode("min_font_size_px_required") is { } nullNodeMinFontSizePxRequired && nullNodeMinFontSizePxRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinFontSizePxRequired = null;
-            if (parseNode.GetChildNode("opt_in_types_allowed") is { } nullNodeOptInTypesAllowed && nullNodeOptInTypesAllowed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptInTypesAllowed = null;
-            if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
+            if (parseNode.GetChildNode("advertiser_name") is null) { _explicitNullValueAdvertiserName = default!; _explicitNullProperties?.Remove("advertiser_name"); }
+            else if (parseNode.GetChildNode("advertiser_name") is { } nullNodeAdvertiserName && nullNodeAdvertiserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvertiserName = null;
+            if (parseNode.GetChildNode("consent_language_acceptance_enabled") is null) { _explicitNullValueConsentLanguageAcceptanceEnabled = default!; _explicitNullProperties?.Remove("consent_language_acceptance_enabled"); }
+            else if (parseNode.GetChildNode("consent_language_acceptance_enabled") is { } nullNodeConsentLanguageAcceptanceEnabled && nullNodeConsentLanguageAcceptanceEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsentLanguageAcceptanceEnabled = null;
+            if (parseNode.GetChildNode("languages") is null) { _explicitNullValueLanguages = default!; _explicitNullProperties?.Remove("languages"); }
+            else if (parseNode.GetChildNode("languages") is { } nullNodeLanguages && nullNodeLanguages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Languages = null;
+            if (parseNode.GetChildNode("min_contrast_ratio_required") is null) { _explicitNullValueMinContrastRatioRequired = default!; _explicitNullProperties?.Remove("min_contrast_ratio_required"); }
+            else if (parseNode.GetChildNode("min_contrast_ratio_required") is { } nullNodeMinContrastRatioRequired && nullNodeMinContrastRatioRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinContrastRatioRequired = null;
+            if (parseNode.GetChildNode("min_font_size_px_required") is null) { _explicitNullValueMinFontSizePxRequired = default!; _explicitNullProperties?.Remove("min_font_size_px_required"); }
+            else if (parseNode.GetChildNode("min_font_size_px_required") is { } nullNodeMinFontSizePxRequired && nullNodeMinFontSizePxRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinFontSizePxRequired = null;
+            if (parseNode.GetChildNode("opt_in_types_allowed") is null) { _explicitNullValueOptInTypesAllowed = default!; _explicitNullProperties?.Remove("opt_in_types_allowed"); }
+            else if (parseNode.GetChildNode("opt_in_types_allowed") is { } nullNodeOptInTypesAllowed && nullNodeOptInTypesAllowed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptInTypesAllowed = null;
+            if (parseNode.GetChildNode("result") is null) { _explicitNullValueResult = default!; _explicitNullProperties?.Remove("result"); }
+            else if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,51 +38,51 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <summary>The legal name of the advertiser used to perform the 1:1 consent language check. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AdvertiserName { get => _explicitNullValueAdvertiserName; set { _explicitNullValueAdvertiserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advertiser_name"); else _explicitNullProperties?.Remove("advertiser_name"); } }
+        public string? AdvertiserName { get => _explicitNullValueAdvertiserName; set { _explicitNullValueAdvertiserName = value; AdditionalData?.Remove("advertiser_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advertiser_name"); else _explicitNullProperties?.Remove("advertiser_name"); } }
         private string? _explicitNullValueAdvertiserName = default!;
 #nullable restore
 #else
-        public string AdvertiserName { get => _explicitNullValueAdvertiserName; set { _explicitNullValueAdvertiserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advertiser_name"); else _explicitNullProperties?.Remove("advertiser_name"); } }
+        public string AdvertiserName { get => _explicitNullValueAdvertiserName; set { _explicitNullValueAdvertiserName = value; AdditionalData?.Remove("advertiser_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advertiser_name"); else _explicitNullProperties?.Remove("advertiser_name"); } }
         private string _explicitNullValueAdvertiserName = default!;
 #endif
         /// <summary>A boolean indicating whether the consent language acceptance check was applied to this request. This value can be passed in the request or set via the consent language settings, and reflects whichever took effect. When `false`, `result.language_approved` is returned as `null`.</summary>
-        public bool? ConsentLanguageAcceptanceEnabled { get => _explicitNullValueConsentLanguageAcceptanceEnabled; set { _explicitNullValueConsentLanguageAcceptanceEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consent_language_acceptance_enabled"); else _explicitNullProperties?.Remove("consent_language_acceptance_enabled"); } }
+        public bool? ConsentLanguageAcceptanceEnabled { get => _explicitNullValueConsentLanguageAcceptanceEnabled; set { _explicitNullValueConsentLanguageAcceptanceEnabled = value; AdditionalData?.Remove("consent_language_acceptance_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consent_language_acceptance_enabled"); else _explicitNullProperties?.Remove("consent_language_acceptance_enabled"); } }
         private bool? _explicitNullValueConsentLanguageAcceptanceEnabled = default!;
         /// <summary>A list of the consent languages detected within the certificate</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_languages>? Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
-        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_languages>? _explicitNullValueLanguages = default!;
+        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultLanguagesItem>? Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; AdditionalData?.Remove("languages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultLanguagesItem>? _explicitNullValueLanguages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_languages> Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
-        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_languages> _explicitNullValueLanguages = default!;
+        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultLanguagesItem> Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; AdditionalData?.Remove("languages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultLanguagesItem> _explicitNullValueLanguages = default!;
 #endif
         /// <summary>The number indicating the minimum contrast ratio required between the consent language text and background. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
-        public double? MinContrastRatioRequired { get => _explicitNullValueMinContrastRatioRequired; set { _explicitNullValueMinContrastRatioRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_contrast_ratio_required"); else _explicitNullProperties?.Remove("min_contrast_ratio_required"); } }
+        public double? MinContrastRatioRequired { get => _explicitNullValueMinContrastRatioRequired; set { _explicitNullValueMinContrastRatioRequired = value; AdditionalData?.Remove("min_contrast_ratio_required"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_contrast_ratio_required"); else _explicitNullProperties?.Remove("min_contrast_ratio_required"); } }
         private double? _explicitNullValueMinContrastRatioRequired = default!;
         /// <summary>The number indicating the minimum font size required for the consent language. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.</summary>
-        public double? MinFontSizePxRequired { get => _explicitNullValueMinFontSizePxRequired; set { _explicitNullValueMinFontSizePxRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_font_size_px_required"); else _explicitNullProperties?.Remove("min_font_size_px_required"); } }
+        public double? MinFontSizePxRequired { get => _explicitNullValueMinFontSizePxRequired; set { _explicitNullValueMinFontSizePxRequired = value; AdditionalData?.Remove("min_font_size_px_required"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_font_size_px_required"); else _explicitNullProperties?.Remove("min_font_size_px_required"); } }
         private double? _explicitNullValueMinFontSizePxRequired = default!;
         /// <summary>An array of strings that lists the opt-in types that are allowed. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided through either method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_opt_in_types_allowed?>? OptInTypesAllowed { get => _explicitNullValueOptInTypesAllowed; set { _explicitNullValueOptInTypesAllowed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_types_allowed"); else _explicitNullProperties?.Remove("opt_in_types_allowed"); } }
-        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_opt_in_types_allowed?>? _explicitNullValueOptInTypesAllowed = default!;
+        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultOptInTypesAllowedItem?>? OptInTypesAllowed { get => _explicitNullValueOptInTypesAllowed; set { _explicitNullValueOptInTypesAllowed = value; AdditionalData?.Remove("opt_in_types_allowed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_types_allowed"); else _explicitNullProperties?.Remove("opt_in_types_allowed"); } }
+        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultOptInTypesAllowedItem?>? _explicitNullValueOptInTypesAllowed = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_opt_in_types_allowed?> OptInTypesAllowed { get => _explicitNullValueOptInTypesAllowed; set { _explicitNullValueOptInTypesAllowed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_types_allowed"); else _explicitNullProperties?.Remove("opt_in_types_allowed"); } }
-        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_opt_in_types_allowed?> _explicitNullValueOptInTypesAllowed = default!;
+        public List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultOptInTypesAllowedItem?> OptInTypesAllowed { get => _explicitNullValueOptInTypesAllowed; set { _explicitNullValueOptInTypesAllowed = value; AdditionalData?.Remove("opt_in_types_allowed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_types_allowed"); else _explicitNullProperties?.Remove("opt_in_types_allowed"); } }
+        private List<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultOptInTypesAllowedItem?> _explicitNullValueOptInTypesAllowed = default!;
 #endif
         /// <summary>An object containing properties that detail the result of the verify operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_result? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
-        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_result? _explicitNullValueResult = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultResult? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultResult? _explicitNullValueResult = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_result Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
-        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_result _explicitNullValueResult = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultResult Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultResult _explicitNullValueResult = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult"/> and sets the default values.
@@ -104,11 +111,11 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             {
                 { "advertiser_name", n => { AdvertiserName = n.GetStringValue(); } },
                 { "consent_language_acceptance_enabled", n => { ConsentLanguageAcceptanceEnabled = n.GetBoolValue(); } },
-                { "languages", n => { Languages = n.GetCollectionOfObjectValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_languages>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_languages.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "languages", n => { Languages = n.GetCollectionOfObjectValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultLanguagesItem>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultLanguagesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "min_contrast_ratio_required", n => { MinContrastRatioRequired = n.GetDoubleValue(); } },
                 { "min_font_size_px_required", n => { MinFontSizePxRequired = n.GetDoubleValue(); } },
-                { "opt_in_types_allowed", n => { OptInTypesAllowed = n.GetCollectionOfEnumValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_opt_in_types_allowed>()?.AsList(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_result>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_result.CreateFromDiscriminatorValue); } },
+                { "opt_in_types_allowed", n => { OptInTypesAllowed = n.GetCollectionOfEnumValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultOptInTypesAllowedItem>()?.AsList(); } },
+                { "result", n => { Result = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultResult>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultResult.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -120,11 +127,11 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("advertiser_name", AdvertiserName);
             writer.WriteBoolValue("consent_language_acceptance_enabled", ConsentLanguageAcceptanceEnabled);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_languages>("languages", Languages);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultLanguagesItem>("languages", Languages);
             writer.WriteDoubleValue("min_contrast_ratio_required", MinContrastRatioRequired);
             writer.WriteDoubleValue("min_font_size_px_required", MinFontSizePxRequired);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_opt_in_types_allowed>("opt_in_types_allowed", OptInTypesAllowed);
-            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResult_result>("result", Result);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultOptInTypesAllowedItem>("opt_in_types_allowed", OptInTypesAllowed);
+            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.VerifyResultResult>("result", Result);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

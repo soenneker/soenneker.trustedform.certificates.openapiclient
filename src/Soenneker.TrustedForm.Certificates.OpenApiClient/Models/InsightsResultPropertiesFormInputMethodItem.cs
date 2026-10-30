@@ -5,7 +5,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum InsightsResult_properties_form_input_method
+    public enum InsightsResultPropertiesFormInputMethodItem
     #pragma warning restore CS1591
     {
         [EnumMember(Value = "autofill")]

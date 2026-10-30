@@ -17,10 +17,14 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
-            if (parseNode.GetChildNode("reference") is { } nullNodeReference && nullNodeReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reference = null;
-            if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
-            if (parseNode.GetChildNode("vendor") is { } nullNodeVendor && nullNodeVendor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vendor = null;
+            if (parseNode.GetChildNode("campaign_id") is null) { _explicitNullValueCampaignId = default!; _explicitNullProperties?.Remove("campaign_id"); }
+            else if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
+            if (parseNode.GetChildNode("reference") is null) { _explicitNullValueReference = default!; _explicitNullProperties?.Remove("reference"); }
+            else if (parseNode.GetChildNode("reference") is { } nullNodeReference && nullNodeReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reference = null;
+            if (parseNode.GetChildNode("results") is null) { _explicitNullValueResults = default!; _explicitNullProperties?.Remove("results"); }
+            else if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
+            if (parseNode.GetChildNode("vendor") is null) { _explicitNullValueVendor = default!; _explicitNullProperties?.Remove("vendor"); }
+            else if (parseNode.GetChildNode("vendor") is { } nullNodeVendor && nullNodeVendor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vendor = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <summary>The campaign identifier submitted with the retain request, if provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; AdditionalData?.Remove("campaign_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
         private string? _explicitNullValueCampaignId = default!;
 #nullable restore
 #else
-        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; AdditionalData?.Remove("campaign_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
         private string _explicitNullValueCampaignId = default!;
 #endif
         /// <summary>Any text that may help you identify the lead associated with the certificate such as a unique lead identifier or URL pointing to the lead in another system. This value will be displayed in your copy of the certificate for your future reference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Reference { get => _explicitNullValueReference; set { _explicitNullValueReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reference"); else _explicitNullProperties?.Remove("reference"); } }
+        public string? Reference { get => _explicitNullValueReference; set { _explicitNullValueReference = value; AdditionalData?.Remove("reference"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reference"); else _explicitNullProperties?.Remove("reference"); } }
         private string? _explicitNullValueReference = default!;
 #nullable restore
 #else
-        public string Reference { get => _explicitNullValueReference; set { _explicitNullValueReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reference"); else _explicitNullProperties?.Remove("reference"); } }
+        public string Reference { get => _explicitNullValueReference; set { _explicitNullValueReference = value; AdditionalData?.Remove("reference"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reference"); else _explicitNullProperties?.Remove("reference"); } }
         private string _explicitNullValueReference = default!;
 #endif
         /// <summary>The results property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
-        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results? _explicitNullValueResults = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResultResults? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResultResults? _explicitNullValueResults = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
-        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results _explicitNullValueResults = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResultResults Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResultResults _explicitNullValueResults = default!;
 #endif
         /// <summary>When retaining a certificate, you can optionally pass the vendor name. This is intended for tracking the name of the company that provided the lead associated with the certificate. TrustedForm will record this value on the certificate stored in your account. Other accounts cannot see this value. When you use TrustedForm reporting, you can easily filter or group by vendor.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Vendor { get => _explicitNullValueVendor; set { _explicitNullValueVendor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vendor"); else _explicitNullProperties?.Remove("vendor"); } }
+        public string? Vendor { get => _explicitNullValueVendor; set { _explicitNullValueVendor = value; AdditionalData?.Remove("vendor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vendor"); else _explicitNullProperties?.Remove("vendor"); } }
         private string? _explicitNullValueVendor = default!;
 #nullable restore
 #else
-        public string Vendor { get => _explicitNullValueVendor; set { _explicitNullValueVendor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vendor"); else _explicitNullProperties?.Remove("vendor"); } }
+        public string Vendor { get => _explicitNullValueVendor; set { _explicitNullValueVendor = value; AdditionalData?.Remove("vendor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vendor"); else _explicitNullProperties?.Remove("vendor"); } }
         private string _explicitNullValueVendor = default!;
 #endif
         /// <summary>
@@ -92,7 +96,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             {
                 { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
                 { "reference", n => { Reference = n.GetStringValue(); } },
-                { "results", n => { Results = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results.CreateFromDiscriminatorValue); } },
+                { "results", n => { Results = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResultResults>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResultResults.CreateFromDiscriminatorValue); } },
                 { "vendor", n => { Vendor = n.GetStringValue(); } },
             };
         }
@@ -105,7 +109,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("campaign_id", CampaignId);
             writer.WriteStringValue("reference", Reference);
-            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResult_results>("results", Results);
+            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.RetainResultResults>("results", Results);
             writer.WriteStringValue("vendor", Vendor);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

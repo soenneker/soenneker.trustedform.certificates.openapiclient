@@ -5,20 +5,20 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum InsightsParameters_properties
+    public enum InsightsParametersPropertiesItem
     #pragma warning restore CS1591
     {
         [EnumMember(Value = "age_seconds")]
         #pragma warning disable CS1591
-        Age_seconds,
+        AgeSeconds,
         #pragma warning restore CS1591
         [EnumMember(Value = "approx_ip_geo")]
         #pragma warning disable CS1591
-        Approx_ip_geo,
+        ApproxIpGeo,
         #pragma warning restore CS1591
         [EnumMember(Value = "bot_detected")]
         #pragma warning disable CS1591
-        Bot_detected,
+        BotDetected,
         #pragma warning restore CS1591
         [EnumMember(Value = "browser")]
         #pragma warning disable CS1591
@@ -26,11 +26,11 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "confirmed_owner")]
         #pragma warning disable CS1591
-        Confirmed_owner,
+        ConfirmedOwner,
         #pragma warning restore CS1591
         [EnumMember(Value = "created_at")]
         #pragma warning disable CS1591
-        Created_at,
+        CreatedAt,
         #pragma warning restore CS1591
         [EnumMember(Value = "domain")]
         #pragma warning disable CS1591
@@ -38,19 +38,19 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "expires_at")]
         #pragma warning disable CS1591
-        Expires_at,
+        ExpiresAt,
         #pragma warning restore CS1591
         [EnumMember(Value = "form_input_kpm")]
         #pragma warning disable CS1591
-        Form_input_kpm,
+        FormInputKpm,
         #pragma warning restore CS1591
         [EnumMember(Value = "form_input_method")]
         #pragma warning disable CS1591
-        Form_input_method,
+        FormInputMethod,
         #pragma warning restore CS1591
         [EnumMember(Value = "form_input_wpm")]
         #pragma warning disable CS1591
-        Form_input_wpm,
+        FormInputWpm,
         #pragma warning restore CS1591
         [EnumMember(Value = "ip")]
         #pragma warning disable CS1591
@@ -58,19 +58,19 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "is_framed")]
         #pragma warning disable CS1591
-        Is_framed,
+        IsFramed,
         #pragma warning restore CS1591
         [EnumMember(Value = "is_masked")]
         #pragma warning disable CS1591
-        Is_masked,
+        IsMasked,
         #pragma warning restore CS1591
         [EnumMember(Value = "num_sensitive_content_elements")]
         #pragma warning disable CS1591
-        Num_sensitive_content_elements,
+        NumSensitiveContentElements,
         #pragma warning restore CS1591
         [EnumMember(Value = "num_sensitive_form_elements")]
         #pragma warning disable CS1591
-        Num_sensitive_form_elements,
+        NumSensitiveFormElements,
         #pragma warning restore CS1591
         [EnumMember(Value = "os")]
         #pragma warning disable CS1591
@@ -78,19 +78,19 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "page_url")]
         #pragma warning disable CS1591
-        Page_url,
+        PageUrl,
         #pragma warning restore CS1591
         [EnumMember(Value = "parent_page_url")]
         #pragma warning disable CS1591
-        Parent_page_url,
+        ParentPageUrl,
         #pragma warning restore CS1591
         [EnumMember(Value = "seconds_on_page")]
         #pragma warning disable CS1591
-        Seconds_on_page,
+        SecondsOnPage,
         #pragma warning restore CS1591
         [EnumMember(Value = "session_replay_status")]
         #pragma warning disable CS1591
-        Session_replay_status,
+        SessionReplayStatus,
         #pragma warning restore CS1591
     }
 }

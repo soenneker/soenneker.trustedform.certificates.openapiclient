@@ -18,10 +18,14 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("delimiter") is { } nullNodeDelimiter && nullNodeDelimiter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Delimiter = null;
-            if (parseNode.GetChildNode("forbidden") is { } nullNodeForbidden && nullNodeForbidden.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Forbidden = null;
-            if (parseNode.GetChildNode("required") is { } nullNodeRequired && nullNodeRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Required = null;
-            if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
+            if (parseNode.GetChildNode("delimiter") is null) { _explicitNullValueDelimiter = default!; _explicitNullProperties?.Remove("delimiter"); }
+            else if (parseNode.GetChildNode("delimiter") is { } nullNodeDelimiter && nullNodeDelimiter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Delimiter = null;
+            if (parseNode.GetChildNode("forbidden") is null) { _explicitNullValueForbidden = default!; _explicitNullProperties?.Remove("forbidden"); }
+            else if (parseNode.GetChildNode("forbidden") is { } nullNodeForbidden && nullNodeForbidden.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Forbidden = null;
+            if (parseNode.GetChildNode("required") is null) { _explicitNullValueRequired = default!; _explicitNullProperties?.Remove("required"); }
+            else if (parseNode.GetChildNode("required") is { } nullNodeRequired && nullNodeRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Required = null;
+            if (parseNode.GetChildNode("result") is null) { _explicitNullValueResult = default!; _explicitNullProperties?.Remove("result"); }
+            else if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,42 +33,42 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <summary>The parameter provided in the request that was used as the delimiter to identify wildcards during the page scan process.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Delimiter { get => _explicitNullValueDelimiter; set { _explicitNullValueDelimiter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delimiter"); else _explicitNullProperties?.Remove("delimiter"); } }
+        public string? Delimiter { get => _explicitNullValueDelimiter; set { _explicitNullValueDelimiter = value; AdditionalData?.Remove("delimiter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delimiter"); else _explicitNullProperties?.Remove("delimiter"); } }
         private string? _explicitNullValueDelimiter = default!;
 #nullable restore
 #else
-        public string Delimiter { get => _explicitNullValueDelimiter; set { _explicitNullValueDelimiter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delimiter"); else _explicitNullProperties?.Remove("delimiter"); } }
+        public string Delimiter { get => _explicitNullValueDelimiter; set { _explicitNullValueDelimiter = value; AdditionalData?.Remove("delimiter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delimiter"); else _explicitNullProperties?.Remove("delimiter"); } }
         private string _explicitNullValueDelimiter = default!;
 #endif
         /// <summary>The parameter provided in the request that was searched for during the page scan process to verify that it was not included in the recorded content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? Forbidden { get => _explicitNullValueForbidden; set { _explicitNullValueForbidden = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forbidden"); else _explicitNullProperties?.Remove("forbidden"); } }
-        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueForbidden = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultForbidden? Forbidden { get => _explicitNullValueForbidden; set { _explicitNullValueForbidden = value; AdditionalData?.Remove("forbidden"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forbidden"); else _explicitNullProperties?.Remove("forbidden"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultForbidden? _explicitNullValueForbidden = default!;
 #nullable restore
 #else
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode Forbidden { get => _explicitNullValueForbidden; set { _explicitNullValueForbidden = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forbidden"); else _explicitNullProperties?.Remove("forbidden"); } }
-        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueForbidden = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultForbidden Forbidden { get => _explicitNullValueForbidden; set { _explicitNullValueForbidden = value; AdditionalData?.Remove("forbidden"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forbidden"); else _explicitNullProperties?.Remove("forbidden"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultForbidden _explicitNullValueForbidden = default!;
 #endif
         /// <summary>The parameter provided in the request that was searched for during the page scan process to verify that it was included in the recorded content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
-        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueRequired = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultRequired? Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; AdditionalData?.Remove("required"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultRequired? _explicitNullValueRequired = default!;
 #nullable restore
 #else
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
-        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueRequired = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultRequired Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; AdditionalData?.Remove("required"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultRequired _explicitNullValueRequired = default!;
 #endif
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
-        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result? _explicitNullValueResult = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultResult? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultResult? _explicitNullValueResult = default!;
 #nullable restore
 #else
-        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
-        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result _explicitNullValueResult = default!;
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultResult Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultResult _explicitNullValueResult = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult"/> and sets the default values.
@@ -92,9 +96,9 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "delimiter", n => { Delimiter = n.GetStringValue(); } },
-                { "forbidden", n => { Forbidden = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
-                { "required", n => { Required = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result.CreateFromDiscriminatorValue); } },
+                { "forbidden", n => { Forbidden = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultForbidden>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultForbidden.CreateFromDiscriminatorValue); } },
+                { "required", n => { Required = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultRequired>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultRequired.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultResult>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultResult.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -105,161 +109,11 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("delimiter", Delimiter);
-            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("forbidden", Forbidden);
-            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("required", Required);
-            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult_result>("result", Result);
+            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultForbidden>("forbidden", Forbidden);
+            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultRequired>("required", Required);
+            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResultResult>("result", Result);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="string"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ScansResult_forbidden : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? ScansResultForbiddenString { get; set; }
-#nullable restore
-#else
-            public string ScansResultForbiddenString { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult.ScansResult_forbidden"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult.ScansResult_forbidden CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-            // A null union input must not initialize an object branch.
-            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
-            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult.ScansResult_forbidden();
-
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult.ScansResult_forbidden();
-                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string scansResultForbiddenStringValue)
-                {
-                    result.ScansResultForbiddenString = scansResultForbiddenStringValue;
-                }
-                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-            // Empty composed wrappers serialize as JSON null.
-            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (ScansResultForbiddenString == null && String == null) { writer.WriteNullValue(null); return; }
-
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(ScansResultForbiddenString != null)
-                {
-                    writer.WriteStringValue(null, ScansResultForbiddenString);
-                }
-                else if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="string"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ScansResult_required : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? ScansResultRequiredString { get; set; }
-#nullable restore
-#else
-            public string ScansResultRequiredString { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult.ScansResult_required"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult.ScansResult_required CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-            // A null union input must not initialize an object branch.
-            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
-            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult.ScansResult_required();
-
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.ScansResult.ScansResult_required();
-                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string scansResultRequiredStringValue)
-                {
-                    result.ScansResultRequiredString = scansResultRequiredStringValue;
-                }
-                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-            // Empty composed wrappers serialize as JSON null.
-            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (ScansResultRequiredString == null && String == null) { writer.WriteNullValue(null); return; }
-
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(ScansResultRequiredString != null)
-                {
-                    writer.WriteStringValue(null, ScansResultRequiredString);
-                }
-                else if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-            }
         }
     }
 }
