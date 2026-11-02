@@ -213,24 +213,6 @@
           "Insights"
         ]
       },
-      "InsightsRequest": {
-        "title": "InsightsRequest",
-        "type": "object",
-        "properties": {
-          "insights": {
-            "$ref": "#/components/schemas/InsightsParameters"
-          }
-        }
-      },
-      "InsightsResponse": {
-        "title": "InsightsResponse",
-        "type": "object",
-        "properties": {
-          "insights": {
-            "$ref": "#/components/schemas/InsightsResult"
-          }
-        }
-      },
       "InsightsResult": {
         "title": "InsightsResult",
         "type": "object",
@@ -399,24 +381,6 @@
           "phone": "5125551212"
         }
       },
-      "MatchLeadRequest": {
-        "title": "MatchLeadRequest",
-        "type": "object",
-        "properties": {
-          "match_lead": {
-            "$ref": "#/components/schemas/MatchLeadParameters"
-          }
-        }
-      },
-      "MatchLeadResponse": {
-        "title": "MatchLeadResponse",
-        "type": "object",
-        "properties": {
-          "match_lead": {
-            "$ref": "#/components/schemas/MatchLeadResult"
-          }
-        }
-      },
       "MatchLeadResult": {
         "title": "MatchLeadResult",
         "type": "object",
@@ -479,21 +443,6 @@
           "reason": "TrustedForm certificate has expired or could not be found"
         }
       },
-      "Outcome": {
-        "title": "Outcome",
-        "type": "object",
-        "properties": {
-          "outcome": {
-            "$ref": "#/components/schemas/OutcomeOutcome"
-          },
-          "reason": {
-            "type": "string",
-            "description": "Explanation for a \u0060failure\u0060 or \u0060error\u0060, otherwise \u0060null\u0060",
-            "nullable": true,
-            "example": "null"
-          }
-        }
-      },
       "PaymentRequired": {
         "title": "PaymentRequired",
         "type": "object",
@@ -534,24 +483,6 @@
         "x-tags": [
           "Retain"
         ]
-      },
-      "RetainRequest": {
-        "title": "RetainRequest",
-        "type": "object",
-        "properties": {
-          "retain": {
-            "$ref": "#/components/schemas/RetainParameters"
-          }
-        }
-      },
-      "RetainResponse": {
-        "title": "RetainResponse",
-        "type": "object",
-        "properties": {
-          "retain": {
-            "$ref": "#/components/schemas/RetainResult"
-          }
-        }
       },
       "RetainResult": {
         "title": "RetainResult",
@@ -678,24 +609,6 @@
         "x-tags": [
           "Verify"
         ]
-      },
-      "VerifyRequest": {
-        "title": "VerifyRequest",
-        "type": "object",
-        "properties": {
-          "verify": {
-            "$ref": "#/components/schemas/VerifyParameters"
-          }
-        }
-      },
-      "VerifyResponse": {
-        "title": "VerifyResponse",
-        "type": "object",
-        "properties": {
-          "verify": {
-            "$ref": "#/components/schemas/VerifyResult"
-          }
-        }
       },
       "VerifyResult": {
         "title": "VerifyResult",
@@ -927,8 +840,8 @@
           "created_at": {
             "type": "string",
             "description": "The UTC ISO8601 formatted date and time when TrustedForm Certify was loaded. For Social certificates, the date and time when the consumer\u0027s interaction with the social platform\u0027s form was recorded.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
-            "format": "datetime",
-            "nullable": true
+            "nullable": true,
+            "x-client-original-format": "datetime"
           },
           "domain": {
             "type": "string",
@@ -938,8 +851,8 @@
           "expires_at": {
             "type": "string",
             "description": "The UTC ISO8601 formatted date and time when the certificate will expire.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
-            "format": "datetime",
-            "nullable": true
+            "nullable": true,
+            "x-client-original-format": "datetime"
           },
           "form_input_kpm": {
             "type": "number",
@@ -990,14 +903,14 @@
           "page_url": {
             "type": "string",
             "description": "The URL of the page hosting TrustedForm Certify.\n\nSupported: Web.",
-            "format": "url",
-            "nullable": true
+            "nullable": true,
+            "x-client-original-format": "url"
           },
           "parent_page_url": {
             "type": "string",
             "description": "The parent URL of the page hosting TrustedForm Certify, if framed.\n\nSupported: Web.",
-            "format": "url",
-            "nullable": true
+            "nullable": true,
+            "x-client-original-format": "url"
           },
           "seconds_on_page": {
             "type": "number",
@@ -1036,8 +949,8 @@
           "expires_at": {
             "type": "string",
             "description": "The UTC ISO8601 formatted date and time when this certificate will no longer be available for API requests.",
-            "format": "datetime",
-            "example": "2023-07-18T12:03:52Z"
+            "example": "2023-07-18T12:03:52Z",
+            "x-client-original-format": "datetime"
           },
           "masked_cert_url": {
             "type": "string",
@@ -1326,10 +1239,6 @@
           }
         }
       },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
-      },
       "InsightsParametersPropertiesItem": {
         "enum": [
           "age_seconds",
@@ -1586,73 +1495,94 @@
         }
       },
       "InsightsResultPropertiesSessionReplayStatus": {
-        "enum": [
-          "available",
-          "unavailable",
-          "masked",
-          "not_applicable",
-          null
-        ],
-        "type": "string",
         "description": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 every page of the certificate has a stored snapshot and at least one recorded event of any type.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
-        "nullable": true,
-        "x-ms-enum": {
-          "name": "InsightsResultPropertiesSessionReplayStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "available",
-              "name": "Available"
-            },
-            {
-              "value": "unavailable",
-              "name": "Unavailable"
-            },
-            {
-              "value": "masked",
-              "name": "Masked"
-            },
-            {
-              "value": "not_applicable",
-              "name": "NotApplicable"
+        "anyOf": [
+          {
+            "enum": [
+              "available",
+              "unavailable",
+              "masked",
+              "not_applicable"
+            ],
+            "type": "string",
+            "description": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 every page of the certificate has a stored snapshot and at least one recorded event of any type.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n\nSupported: Web, Mobile, Facebook Lead Ads, Social.",
+            "x-ms-enum": {
+              "name": "InsightsResultPropertiesSessionReplayStatus",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "available",
+                  "name": "Available"
+                },
+                {
+                  "value": "unavailable",
+                  "name": "Unavailable"
+                },
+                {
+                  "value": "masked",
+                  "name": "Masked"
+                },
+                {
+                  "value": "not_applicable",
+                  "name": "NotApplicable"
+                }
+              ]
             }
-          ]
-        }
+          },
+          {
+            "$ref": "#/components/schemas/OpenApiNullValue"
+          }
+        ]
       },
       "RetainResultResultsSessionReplayStatus": {
-        "enum": [
-          "available",
-          "unavailable",
-          "masked",
-          "not_applicable",
-          null
-        ],
-        "type": "string",
         "description": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 every page of the certificate has a stored snapshot and at least one recorded event of any type.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n",
-        "nullable": true,
         "example": "available",
-        "x-ms-enum": {
-          "name": "RetainResultResultsSessionReplayStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "available",
-              "name": "Available"
-            },
-            {
-              "value": "unavailable",
-              "name": "Unavailable"
-            },
-            {
-              "value": "masked",
-              "name": "Masked"
-            },
-            {
-              "value": "not_applicable",
-              "name": "NotApplicable"
+        "anyOf": [
+          {
+            "enum": [
+              "available",
+              "unavailable",
+              "masked",
+              "not_applicable"
+            ],
+            "type": "string",
+            "description": "Whether this certificate has a session replay worth acting on.\n\nThe value can be one of the following:\n- \u0060\u0060\u0022available\u0022\u0060\u0060 \u2014 every page of the certificate has a stored snapshot and at least one recorded event of any type.\n- \u0060\u0060\u0022unavailable\u0022\u0060\u0060 \u2014 at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as \u0060\u0060\u0022unavailable\u0022\u0060\u0060.\n- \u0060\u0060\u0022masked\u0022\u0060\u0060 \u2014 rendering is intentionally withheld because the certificate is masked. Web certificates only.\n- \u0060\u0060\u0022not_applicable\u0022\u0060\u0060 \u2014 this certificate type has no session replay. Mobile, Facebook, and Social certificates.\n- \u0060\u0060null\u0060\u0060 \u2014 the status could not be calculated. It is never a conclusion about the certificate.\n",
+            "example": "available",
+            "x-ms-enum": {
+              "name": "RetainResultResultsSessionReplayStatus",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "available",
+                  "name": "Available"
+                },
+                {
+                  "value": "unavailable",
+                  "name": "Unavailable"
+                },
+                {
+                  "value": "masked",
+                  "name": "Masked"
+                },
+                {
+                  "value": "not_applicable",
+                  "name": "NotApplicable"
+                }
+              ]
             }
-          ]
-        }
+          },
+          {
+            "$ref": "#/components/schemas/OpenApiNullValue"
+          }
+        ]
+      },
+      "OpenApiNullValue": {
+        "type": "object",
+        "nullable": true,
+        "not": {
+          "type": "object"
+        },
+        "x-client-untyped-value": true
       }
     },
     "responses": {
@@ -1807,5 +1737,98 @@
         "Sending on Ping"
       ]
     }
-  ]
+  ],
+  "x-client-unused-schemas": {
+    "InsightsRequest": {
+      "title": "InsightsRequest",
+      "type": "object",
+      "properties": {
+        "insights": {
+          "$ref": "#/components/schemas/InsightsParameters"
+        }
+      }
+    },
+    "InsightsResponse": {
+      "title": "InsightsResponse",
+      "type": "object",
+      "properties": {
+        "insights": {
+          "$ref": "#/components/schemas/InsightsResult"
+        }
+      }
+    },
+    "MatchLeadRequest": {
+      "title": "MatchLeadRequest",
+      "type": "object",
+      "properties": {
+        "match_lead": {
+          "$ref": "#/components/schemas/MatchLeadParameters"
+        }
+      }
+    },
+    "MatchLeadResponse": {
+      "title": "MatchLeadResponse",
+      "type": "object",
+      "properties": {
+        "match_lead": {
+          "$ref": "#/components/schemas/MatchLeadResult"
+        }
+      }
+    },
+    "Outcome": {
+      "title": "Outcome",
+      "type": "object",
+      "properties": {
+        "outcome": {
+          "$ref": "#/components/schemas/OutcomeOutcome"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Explanation for a \u0060failure\u0060 or \u0060error\u0060, otherwise \u0060null\u0060",
+          "nullable": true,
+          "example": "null"
+        }
+      }
+    },
+    "RetainRequest": {
+      "title": "RetainRequest",
+      "type": "object",
+      "properties": {
+        "retain": {
+          "$ref": "#/components/schemas/RetainParameters"
+        }
+      }
+    },
+    "RetainResponse": {
+      "title": "RetainResponse",
+      "type": "object",
+      "properties": {
+        "retain": {
+          "$ref": "#/components/schemas/RetainResult"
+        }
+      }
+    },
+    "VerifyRequest": {
+      "title": "VerifyRequest",
+      "type": "object",
+      "properties": {
+        "verify": {
+          "$ref": "#/components/schemas/VerifyParameters"
+        }
+      }
+    },
+    "VerifyResponse": {
+      "title": "VerifyResponse",
+      "type": "object",
+      "properties": {
+        "verify": {
+          "$ref": "#/components/schemas/VerifyResult"
+        }
+      }
+    },
+    "ExamplePayload": {
+      "type": "object",
+      "description": "Placeholder schema for path example refs"
+    }
+  }
 }

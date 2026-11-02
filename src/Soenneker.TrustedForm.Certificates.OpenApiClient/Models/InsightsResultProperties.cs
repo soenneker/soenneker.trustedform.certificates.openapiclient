@@ -202,8 +202,15 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         public double? SecondsOnPage { get => _explicitNullValueSecondsOnPage; set { _explicitNullValueSecondsOnPage = value; AdditionalData?.Remove("seconds_on_page"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seconds_on_page"); else _explicitNullProperties?.Remove("seconds_on_page"); } }
         private double? _explicitNullValueSecondsOnPage = default!;
         /// <summary>Whether this certificate has a session replay worth acting on.The value can be one of the following:- ``&quot;available&quot;`` — every page of the certificate has a stored snapshot and at least one recorded event of any type.- ``&quot;unavailable&quot;`` — at least one page of the certificate has no snapshot or no recorded event. This means the replay does not evidence consent, NOT that it will fail to load: a page with a snapshot but no recorded events renders a static page without error, and the certificate is still reported as ``&quot;unavailable&quot;``.- ``&quot;masked&quot;`` — rendering is intentionally withheld because the certificate is masked. Web certificates only.- ``&quot;not_applicable&quot;`` — this certificate type has no session replay. Mobile, Facebook, and Social certificates.- ``null`` — the status could not be calculated. It is never a conclusion about the certificate.Supported: Web, Mobile, Facebook Lead Ads, Social.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResultPropertiesSessionReplayStatus? SessionReplayStatus { get => _explicitNullValueSessionReplayStatus; set { _explicitNullValueSessionReplayStatus = value; AdditionalData?.Remove("session_replay_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_replay_status"); else _explicitNullProperties?.Remove("session_replay_status"); } }
         private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResultPropertiesSessionReplayStatus? _explicitNullValueSessionReplayStatus = default!;
+#nullable restore
+#else
+        public global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResultPropertiesSessionReplayStatus SessionReplayStatus { get => _explicitNullValueSessionReplayStatus; set { _explicitNullValueSessionReplayStatus = value; AdditionalData?.Remove("session_replay_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_replay_status"); else _explicitNullProperties?.Remove("session_replay_status"); } }
+        private global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResultPropertiesSessionReplayStatus _explicitNullValueSessionReplayStatus = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResultProperties"/> and sets the default values.
         /// </summary>
@@ -249,7 +256,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
                 { "page_url", n => { PageUrl = n.GetStringValue(); } },
                 { "parent_page_url", n => { ParentPageUrl = n.GetStringValue(); } },
                 { "seconds_on_page", n => { SecondsOnPage = n.GetDoubleValue(); } },
-                { "session_replay_status", n => { var parsed = n.GetEnumValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResultPropertiesSessionReplayStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSessionReplayStatus = default; _explicitNullProperties?.Remove("session_replay_status"); AdditionalData["session_replay_status"] = unknown; } else { SessionReplayStatus = parsed; AdditionalData.Remove("session_replay_status"); } } },
+                { "session_replay_status", n => { SessionReplayStatus = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResultPropertiesSessionReplayStatus>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResultPropertiesSessionReplayStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -279,7 +286,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
             writer.WriteStringValue("page_url", PageUrl);
             writer.WriteStringValue("parent_page_url", ParentPageUrl);
             writer.WriteDoubleValue("seconds_on_page", SecondsOnPage);
-            writer.WriteEnumValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResultPropertiesSessionReplayStatus>("session_replay_status", SessionReplayStatus);
+            writer.WriteObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResultPropertiesSessionReplayStatus>("session_replay_status", SessionReplayStatus);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
