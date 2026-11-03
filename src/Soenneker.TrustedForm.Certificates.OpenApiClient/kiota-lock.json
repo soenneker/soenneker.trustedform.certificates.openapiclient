@@ -2,7 +2,7 @@
   "descriptionHash": "16081105F89B46445A0EC03F3B52D8F85A693758B9C6CAC992CFEEE3AC5C9179F533C44EA9BB9D6DEA3E192516150D06F6655F28748EF1EC50893167787DAFE8",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.37.0",
+  "kiotaVersion": "1.38.0",
   "clientClassName": "TrustedFormCertificatesOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.TrustedForm.Certificates.OpenApiClient",
