@@ -109,7 +109,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "insights", n => { Insights = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.InsightsResult.CreateFromDiscriminatorValue); } },
                 { "match_lead", n => { MatchLead = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.MatchLeadResult.CreateFromDiscriminatorValue); } },

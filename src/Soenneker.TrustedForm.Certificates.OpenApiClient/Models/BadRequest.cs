@@ -95,7 +95,7 @@ namespace Soenneker.TrustedForm.Certificates.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "errors", n => { Errors = n.GetObjectValue<global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.BadRequestErrors>(global::Soenneker.TrustedForm.Certificates.OpenApiClient.Models.BadRequestErrors.CreateFromDiscriminatorValue); } },
                 { "message", n => { MessageEscaped = n.GetStringValue(); } },
